@@ -36,12 +36,6 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     public interface OnReplyListener {
         void onSendReply(Comment parentComment, String replyText, int position);
         String getMyAvatarLetter();
-
-
-
-
-
-        
     }
 
     private final List<Comment>         list             = new ArrayList<>();
@@ -60,7 +54,6 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
         String newEmail = userEmail != null ? userEmail : "";
 
-        // ✅ Nếu đổi user → xóa toàn bộ reaction cache của user cũ
         if (!newEmail.equals(this.currentUserEmail)) {
             reactionMap.clear();
             reactionCountMap.clear();
