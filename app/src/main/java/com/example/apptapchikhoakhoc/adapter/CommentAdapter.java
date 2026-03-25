@@ -36,12 +36,6 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     public interface OnReplyListener {
         void onSendReply(Comment parentComment, String replyText, int position);
         String getMyAvatarLetter();
-
-
-
-
-
-        
     }
 
     private final List<Comment>         list             = new ArrayList<>();
