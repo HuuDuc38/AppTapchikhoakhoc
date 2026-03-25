@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/notifications_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F3EF">
+
+    <!-- TOOLBAR -->
+    <LinearLayout
+        android:id="@+id/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="12dp"
+        android:background="@drawable/toolbar_gradient_red"
+        android:elevation="4dp">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_arrow_back"
+            android:background="@drawable/bg_circle_white_alpha"
+            android:padding="10dp"
+            android:contentDescription="Quay lại" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Theo dõi"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingStart="10dp"
+            android:fontFamily="serif" />
+
+        <FrameLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp">
+
+            <ImageButton
+                android:id="@+id/btn_bell"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_notifications"
+                android:background="@drawable/bg_circle_white_alpha"
+                android:tint="@android:color/white"
+                android:padding="10dp"
+                android:contentDescription="Thông báo" />
+
+            <View
+                android:id="@+id/view_notif_dot"
+                android:layout_width="9dp"
+                android:layout_height="9dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="5dp"
+                android:background="@drawable/bg_notif_dot"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- TAB BAR -->
+    <LinearLayout
+        android:id="@+id/tab_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:id="@+id/tab_all"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <TextView
+                android:id="@+id/tv_tab_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tất cả"
+                android:textSize="13sp"
+                android:textColor="#C0392B"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/indicator_all"
+                android:layout_width="40dp"
+                android:layout_height="2.5dp"
+                android:layout_marginTop="6dp"
+                android:background="#C0392B" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab_my_articles"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <TextView
+                android:id="@+id/tv_tab_my"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bài đã duyệt"
+                android:textSize="13sp"
+                android:textColor="#999999" />
+
+            <View
+                android:id="@+id/indicator_my"
+                android:layout_width="40dp"
+                android:layout_height="2.5dp"
+                android:layout_marginTop="6dp"
+                android:background="@android:color/transparent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab_saved"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <TextView
+                android:id="@+id/tv_tab_saved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đã lưu"
+                android:textSize="13sp"
+                android:textColor="#999999" />
+
+            <View
+                android:id="@+id/indicator_saved"
+                android:layout_width="40dp"
+                android:layout_height="2.5dp"
+                android:layout_marginTop="6dp"
+                android:background="@android:color/transparent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Tab bottom border -->
+    <View
+        android:id="@+id/tab_bottom_border"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#EBE9E4" />
+
+    <!-- SCROLLABLE CONTENT — thêm id để Java set background -->
+    <ScrollView
+        android:id="@+id/scroll_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:background="#F5F3EF">
+
+        <!-- Inner LinearLayout — thêm id để Java set background -->
+        <LinearLayout
+            android:id="@+id/scroll_inner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <!-- SECTION: BÀI VIẾT ĐÃ DUYỆT -->
+            <LinearLayout
+                android:id="@+id/section_my_articles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+
+                    <View
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:background="@drawable/bg_circle_red"
+                        android:layout_marginEnd="7dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="BÀI VIẾT ĐÃ DUYỆT"
+                        android:textSize="12.5sp"
+                        android:textStyle="bold"
+                        android:textColor="#2C2C2A"
+                        android:letterSpacing="0.05" />
+
+                    <TextView
+                        android:id="@+id/tv_see_all_my"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Xem tất cả →"
+                        android:textSize="12sp"
+                        android:textColor="#C0392B"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_empty_my_articles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bạn chưa có bài viết nào được duyệt."
+                    android:textColor="#AAAAAA"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_my_articles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:id="@+id/divider_sections"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/divider_fade"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="14dp"
+                android:visibility="gone" />
+
+            <!-- SECTION: MỚI NHẤT -->
+            <LinearLayout
+                android:id="@+id/section_new_articles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+
+                    <View
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:background="@drawable/bg_circle_red"
+                        android:layout_marginEnd="7dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="MỚI NHẤT"
+                        android:textSize="12.5sp"
+                        android:textStyle="bold"
+                        android:textColor="#2C2C2A"
+                        android:letterSpacing="0.05" />
+
+                    <TextView
+                        android:id="@+id/tv_see_more_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Xem thêm →"
+                        android:textSize="12sp"
+                        android:textColor="#C0392B"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_empty_new_articles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Chưa có bài báo nào được duyệt."
+                    android:textColor="#AAAAAA"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_new_articles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <!-- SECTION: ĐÃ LƯU -->
+            <LinearLayout
+                android:id="@+id/section_saved"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+
+                    <View
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:background="@drawable/bg_circle_red"
+                        android:layout_marginEnd="7dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="ĐÃ LƯU"
+                        android:textSize="12.5sp"
+                        android:textStyle="bold"
+                        android:textColor="#2C2C2A"
+                        android:letterSpacing="0.05" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_empty_saved"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bạn chưa lưu bài viết nào."
+                    android:textColor="#AAAAAA"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:padding="16dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_saved"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

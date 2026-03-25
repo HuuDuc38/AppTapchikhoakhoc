@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Theme mặc định của app -->
+    <style name="Theme.AppTapChiKhoaHoc" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#FF5722</item>        <!-- màu chính (header) -->
+        <item name="colorPrimaryVariant">#E64A19</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="android:windowBackground">#FFFFFF</item>
+    </style>
+</resources>

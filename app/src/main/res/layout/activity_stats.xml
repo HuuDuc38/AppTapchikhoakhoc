@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:id="@+id/innerContentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ===== HEADER ===== -->
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/toolbar_gradient_red"
+            android:orientation="vertical"
+            android:paddingStart="4dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp">
+
+                <ImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="4dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:src="@drawable/back"
+                    app:tint="@android:color/white" />
+
+                <!-- ✅ Dùng string resource -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:letterSpacing="-0.02"
+                    android:text="@string/stats_title"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/stats_subtitle"
+                android:textColor="#FFFFFF99"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Section: NỘI DUNG -->
+            <TextView
+                android:id="@+id/tvSectionContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:letterSpacing="0.15"
+                android:text="@string/stats_section_content"
+                android:textColor="#FF2E7D"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <!-- Card: Bài đã duyệt -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardApproved"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#66668A"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="24dp">
+
+                    <LinearLayout
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:background="@drawable/stat_icon_bg_pink"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📰"
+                            android:textSize="26sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <!-- ✅ string resource -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stats_approved"
+                            android:textColor="#FFFFFF88"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvTotalArticles"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingMultiplier="0.9"
+                            android:text="0"
+                            android:textColor="#FFFFFF"
+                            android:textSize="40sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:background="@drawable/badge_live_bg"
+                        android:gravity="center"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:text="@string/stats_live"
+                        android:textColor="#FF2E7D"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Hàng 2: Chờ duyệt + Người dùng -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal">
+
+                <!-- Chờ duyệt -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardPending"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="#66668A"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/stat_icon_bg_orange"
+                            android:gravity="center"
+                            android:text="⏳"
+                            android:textSize="20sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvPendingArticles"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="#FF9F43"
+                                android:textSize="32sp"
+                                android:textStyle="bold" />
+
+                            <!-- ✅ string resource -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/stats_pending"
+                                android:textColor="#FFFFFF66"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Người dùng -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardUsers"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="#66668A"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/stat_icon_bg_purple"
+                            android:gravity="center"
+                            android:text="👥"
+                            android:textSize="20sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvTotalUsers"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="#A855F7"
+                                android:textSize="32sp"
+                                android:textStyle="bold" />
+
+                            <!-- ✅ string resource -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/stats_users"
+                                android:textColor="#FFFFFF66"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Section: TƯƠNG TÁC -->
+            <TextView
+                android:id="@+id/tvSectionInteraction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:letterSpacing="0.15"
+                android:text="@string/stats_section_interaction"
+                android:textColor="#FF2E7D"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <!-- Card: Lượt xem -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#66668A"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/stat_icon_bg_blue"
+                        android:gravity="center"
+                        android:text="👁"
+                        android:textSize="22sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <!-- ✅ string resource -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stats_views"
+                            android:textColor="#FFFFFF66"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvTotalViews"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="#38BDF8"
+                            android:textSize="34sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:orientation="vertical">
+                        <View android:layout_width="match_parent" android:layout_height="4dp" android:layout_marginBottom="4dp" android:alpha="1.0" android:background="#38BDF8" />
+                        <View android:layout_width="60dp" android:layout_height="4dp" android:layout_marginBottom="4dp" android:alpha="0.6" android:background="#38BDF8" />
+                        <View android:layout_width="40dp" android:layout_height="4dp" android:alpha="0.3" android:background="#38BDF8" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Hàng 4: Lượt thích + Bình luận -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:orientation="horizontal">
+
+                <!-- Lượt thích -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardLikes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="#66668A"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/stat_icon_bg_red"
+                            android:gravity="center"
+                            android:text="❤️"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvTotalLikes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="#FF4D6A"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+
+                            <!-- ✅ string resource -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/stats_likes"
+                                android:textColor="#FFFFFF55"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Bình luận -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardComments"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="#66668A"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/stat_icon_bg_teal"
+                            android:gravity="center"
+                            android:text="💬"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvTotalComments"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="#2DD4BF"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+
+                            <!-- ✅ string resource -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/stats_comments"
+                                android:textColor="#FFFFFF55"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

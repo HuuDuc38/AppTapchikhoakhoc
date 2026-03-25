@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light Mode Colors -->
+    <color name="light_background">#F5F5F5</color>
+    <color name="light_card_background">#FFFFFF</color>
+    <color name="light_text_primary">#212121</color>
+    <color name="light_text_secondary">#757575</color>
+    <color name="light_divider">#E0E0E0</color>
+    <color name="light_section_header">#9E9E9E</color>
+
+    <!-- Dark Mode Colors (theo ảnh) -->
+    <color name="dark_background">#1A2332</color>
+    <color name="dark_card_background">#243447</color>
+    <color name="dark_text_primary">#FFFFFF</color>
+    <color name="dark_text_secondary">#8A9BAE</color>
+    <color name="dark_divider">#2E3D4F</color>
+    <color name="dark_section_header">#6B7C91</color>
+    <color name="dark_status_bar">#141D29</color>
+
+    <!-- Accent Colors -->
+    <color name="accent_green">#00D9A5</color>
+    <color name="accent_green_light">#4CAF50</color>
+
+    <!-- Icon Background Colors (giữ nguyên) -->
+    <color name="circle_purple">#9C27B0</color>
+    <color name="circle_blue">#2196F3</color>
+    <color name="circle_orange">#FF9800</color>
+    <color name="circle_amber">#FFC107</color>
+    <color name="circle_green">#4CAF50</color>
+    <color name="circle_teal">#009688</color>
+    <color name="circle_red">#F44336</color>
+    <color name="circle_pink">#E91E63</color>
+    <color name="bottom_nav_item_color">@color/bottom_nav_selector</color>
+
+    <color name="notif_background">#F5F6F8</color>
+    <color name="notif_card_background">#FFFFFF</color>
+    <color name="notif_text_primary">#1a1a2e</color>
+    <color name="notif_text_secondary">#888888</color>
+    <color name="notif_text_time">#AAAAAA</color>
+    <color name="notif_divider">#E0E0E0</color>
+    <color name="notif_section_title">#1a1a2e</color>
+    <color name="back_icon_tint">#444444</color>
+</resources>

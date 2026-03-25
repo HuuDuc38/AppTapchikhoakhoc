@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_change_theme"
+        android:title="Thay đổi giao diện"
+        />
+
+    <item
+        android:id="@+id/action_register"
+        android:title="Đăng ký / Đăng nhập"
+        />
+    <item
+        android:id="@+id/action_login"
+        android:title="Đăng nhập quản trị "
+        />
+</menu>

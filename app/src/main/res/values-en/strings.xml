@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App name -->
+    <string name="app_name">Science Journal</string>
+
+    <!-- Settings screen labels -->
+    <string name="settings_title">Profile</string>
+    <string name="settings_guest">Guest</string>
+    <string name="settings_login_prompt">Sign in for full experience</string>
+
+    <!-- Section headers -->
+    <string name="section_interface">INTERFACE</string>
+    <string name="section_customize">CUSTOMIZATION</string>
+    <string name="section_support">SUPPORT</string>
+
+    <!-- Dark mode -->
+    <string name="dark_mode_title">Dark Mode</string>
+    <string name="dark_mode_subtitle">Protect your eyes at night</string>
+
+    <!-- Language -->
+    <string name="language_title">Language</string>
+    <string name="language_vietnamese">Tiếng Việt</string>
+    <string name="language_english">English</string>
+
+    <!-- Text size -->
+    <string name="text_size_title">Text Size</string>
+    <string name="text_size_small">Small</string>
+    <string name="text_size_medium">Medium</string>
+    <string name="text_size_large">Large</string>
+
+    <string name="privacy_title">Privacy</string>
+    <string name="privacy_subtitle">Account management</string>
+
+    <!-- Notification -->
+    <string name="notification_title">Privacy</string>
+    <string name="notification_subtitle">Account Management</string>
+    <string name="notification_open">Opening notification settings…</string>
+
+    <!-- Help -->
+    <string name="help_title">Help &amp; Support</string>
+    <string name="help_subtitle">Frequently asked questions</string>
+
+    <!-- About -->
+    <string name="about_title">About Us</string>
+    <string name="about_subtitle">Version 1.0.0</string>
+
+    <!-- Admin login -->
+    <string name="admin_login_title">Admin Login</string>
+    <string name="admin_login_subtitle">For administrators only</string>
+
+    <!-- Logout -->
+    <string name="logout">Log Out</string>
+    <string name="logged_out">Logged out successfully</string>
+    <string name="email_not_updated">Not updated</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_close">Close</string>
+    <string name="dialog_language_title">Select Language</string>
+    <string name="dialog_text_size_title">Text Size</string>
+    <string name="dialog_help_title">Help</string>
+    <string name="dialog_help_message">If you encounter any issues, please contact support via email or our official website.</string>
+    <string name="dialog_about_title">About the App</string>
+    <string name="dialog_about_message">Science Journal v1.0.0\nDeveloped by the research team.\n© 2024 All rights reserved.</string>
+    <string name="dialog_logout_title">Confirm Logout</string>
+    <string name="dialog_logout_message">Are you sure you want to log out?</string>
+    <string name="dialog_user_info_title">User Information</string>
+    <string name="dialog_user_info_message">Name: %1$s\nEmail: %2$s</string>
+
+    <!-- ══ Add Article ══ -->
+    <string name="add_article_title">Add New Article</string>
+    <string name="add_article_pending_banner">⏳ The article will be submitted for review before being published</string>
+    <string name="add_article_hint_title">Article title</string>
+    <string name="add_article_hint_author">Author</string>
+    <string name="add_article_hint_category">Select category</string>
+    <string name="add_article_section_image">Cover Image</string>
+    <string name="add_article_placeholder_image">No cover image selected</string>
+    <string name="add_article_btn_pick_image">Choose cover image from gallery</string>
+    <string name="add_article_section_video">Illustration Video (optional)</string>
+    <string name="add_article_placeholder_video">No video selected</string>
+    <string name="add_article_btn_pick_video">Choose video from gallery</string>
+    <string name="add_article_section_content">Article Content</string>
+    <string name="add_article_paste_hint">💡 Admin: Paste images directly or use the insert button</string>
+    <string name="add_article_btn_submit">PUBLISH</string>
+    <string name="add_article_toolbar_bold">Bold</string>
+    <string name="add_article_toolbar_italic">Italic</string>
+    <string name="add_article_toolbar_underline">Underline</string>
+    <string name="add_article_toolbar_align_left">Align left</string>
+    <string name="add_article_toolbar_align_center">Align center</string>
+    <string name="add_article_toolbar_align_right">Align right</string>
+    <string name="add_article_toolbar_align_justify">Justify</string>
+    <string name="add_article_toolbar_insert_image">Insert image into content</string>
+    <string name="add_article_toolbar_bullet">Bullet list</string>
+    <string name="add_article_toolbar_number">Numbered list</string>
+    <string name="add_article_toolbar_link">Insert link</string>
+    <string name="add_article_toolbar_strikethrough">Strikethrough</string>
+
+    <!-- ══ Article Detail ══ -->
+    <string name="detail_related_header">RELATED ARTICLES</string>
+    <string name="detail_action_like">Like</string>
+    <string name="detail_action_comment">Comment</string>
+    <string name="detail_action_share">Share</string>
+
+    <!-- ══ Contact ══ -->
+    <string name="contact_toolbar_title">Contact Administrator</string>
+    <string name="contact_title">Contact the administrator\nto get an account</string>
+    <string name="contact_label_call">Call hotline</string>
+    <string name="contact_label_email">Send email</string>
+    <string name="contact_label_zalo">Message on Zalo</string>
+
+    <!-- ══ Login ══ -->
+    <string name="login_welcome">Welcome back</string>
+    <string name="login_subtitle">Sign in to continue</string>
+    <string name="login_hint_email">Email</string>
+    <string name="login_hint_password">Password</string>
+    <string name="login_forgot_password">Forgot password?</string>
+    <string name="login_btn">Sign In</string>
+    <string name="login_register_prompt">Don\'t have an account? Register now</string>
+
+    <!-- ══ Home / MainActivity ══ -->
+    <string name="home_app_name">SCIENCE JOURNAL</string>
+    <string name="home_app_subtitle">VINH TECHNICAL</string>
+    <string name="home_tab_news">NEWS &amp; EVENTS</string>
+    <string name="home_tab_training">TRAINING</string>
+    <string name="home_tab_jobs">JOB INFORMATION</string>
+    <string name="home_tab_science">SCIENCE &amp; TECHNOLOGY</string>
+    <string name="home_tab_cooperation">INTERNATIONAL COOPERATION</string>
+
+    <!-- ══ Search ══ -->
+    <string name="search_hint">Search...</string>
+    <string name="search_back">Go back</string>
+    <string name="search_empty">Please enter something to search</string>
+
+    <!-- ══ Register ══ -->
+    <string name="register_title">Create New Account</string>
+    <string name="register_hint_fullname">Full name</string>
+    <string name="register_hint_email">Email</string>
+    <string name="register_hint_password">Password</string>
+    <string name="register_hint_confirm_password">Confirm password</string>
+    <string name="register_btn">Register</string>
+    <string name="register_login_prompt">Already have an account? Sign in</string>
+    <string name="register_back">Go back</string>
+
+    <!-- ══ Comment item ══ -->
+    <string name="comment_default_name">Username</string>
+    <string name="comment_default_content">Comment content...</string>
+    <string name="comment_btn_like">Like</string>
+    <string name="comment_btn_reply">Reply</string>
+    <string name="comment_reply_hint">Write a reply...</string>
+    <string name="comment_send_reply">Send reply</string>
+
+    <!-- ══ Action bar card ══ -->
+    <string name="action_like">Like</string>
+    <string name="action_comment">Comment</string>
+    <string name="action_share">Share</string>
+    <string name="action_comment_hint">Write a comment...</string>
+    <string name="action_send">Send</string>
+
+    <!-- ══ Nav header ══ -->
+    <string name="nav_header_title">SCIENCE JOURNAL</string>
+    <string name="nav_header_subtitle">Vinh Technical</string>
+
+    <!-- ══ Drawer menu ══ -->
+    <string name="nav_home">Home</string>
+    <string name="nav_featured">Featured</string>
+    <string name="nav_post">Post</string>
+    <string name="nav_following">Following</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- ══ Related news / list item ══ -->
+    <string name="item_thumbnail_desc">Article image</string>
+
+    <!-- ══ Side/Drawer menu items ══ -->
+    <string name="menu_home">Home</string>
+    <string name="menu_news">News &amp; Events</string>
+    <string name="menu_training">Training</string>
+    <string name="menu_jobs">Job Information</string>
+    <string name="menu_science">Science &amp; Technology</string>
+    <string name="menu_cooperation">International Cooperation</string>
+    <string name="menu_intro">Introduction</string>
+
+    <!-- ══ Admin Settings ══ -->
+    <string name="settings_admin_title">Settings</string>
+    <string name="admin_name">Administrator</string>
+    <string name="dark_mode_on">Dark mode enabled</string>
+    <string name="dark_mode_off">Dark mode disabled</string>
+    <string name="btn_save">Save</string>
+    <string name="dialog_admin_logout_message">Are you sure you want to log out of the admin panel?</string>
+
+    <!-- ══ Admin Activity toolbar + dialogs ══ -->
+    <string name="admin_welcome_line1">WELCOME TO</string>
+    <string name="admin_welcome_line2">ADMIN PANEL</string>
+    <string name="admin_exit_title">Exit Admin Panel</string>
+    <string name="admin_exit_message">Do you want to exit the admin panel?</string>
+    <string name="admin_delete_title">🗑 Delete Article</string>
+    <string name="admin_delete_message">Permanently delete "%1$s"?\n\nThis action cannot be undone.</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">Cancel</string>
+    <string name="dialog_delete">Delete</string>
+
+    <!-- ══ Admin Settings screen labels ══ -->
+    <string name="admin_section_interface">INTERFACE</string>
+    <string name="admin_section_customization">CUSTOMIZATION</string>
+    <string name="admin_section_support">SUPPORT</string>
+    <string name="admin_dark_mode_label">Dark Mode</string>
+    <string name="admin_dark_mode_desc">Protect your eyes at night</string>
+    <string name="admin_language_label">Language</string>
+    <string name="admin_notif_label">Notifications</string>
+    <string name="admin_notif_desc">Manage system notifications</string>
+    <string name="admin_help_label">Help &amp; Support</string>
+    <string name="admin_help_desc">Frequently asked questions</string>
+    <string name="admin_about_label">About Us</string>
+    <string name="admin_about_desc">Version 1.0.0</string>
+    <string name="admin_logout_label">Log Out</string>
+
+    <!-- ══ Stats Activity ══ -->
+    <string name="stats_title">Statistics</string>
+    <string name="stats_subtitle">System Overview</string>
+    <string name="stats_section_content">CONTENT</string>
+    <string name="stats_section_interaction">INTERACTION</string>
+    <string name="stats_approved">Approved Articles</string>
+    <string name="stats_live">✓ Live</string>
+    <string name="stats_pending">Pending</string>
+    <string name="stats_users">Users</string>
+    <string name="stats_views">Views</string>
+    <string name="stats_likes">Likes</string>
+    <string name="stats_comments">Comments</string>
+
+    <!-- ══ Approve Article Activity ══ -->
+    <string name="approve_title">ARTICLE APPROVAL</string>
+    <string name="approve_pending_count">%1$d pending</string>
+    <string name="approve_tab_all">Waiting for approval</string>
+    <string name="approve_tab_approved">Approved</string>
+    <string name="approve_tab_rejected">Rejected</string>
+    <string name="approve_empty_title">No articles pending approval</string>
+    <string name="approve_empty_desc">All articles have been processed</string>
+    <string name="approve_status_pending">⏳ Pending</string>
+    <string name="approve_status_approved">✅ Approved</string>
+    <string name="approve_status_rejected">❌ Rejected</string>
+    <string name="approve_btn_approve">✓  Approve</string>
+    <string name="approve_btn_reject">✕  Reject</string>
+    <string name="approve_btn_revoke">↩  Revoke</string>
+    <string name="approve_btn_reapprove">↺  Re-approve</string>
+    <string name="approve_time_approved">Approved at: </string>
+    <string name="approve_time_rejected">Rejected at: </string>
+    <string name="approve_no_content">No content</string>
+    <string name="approve_anonymous">Anonymous</string>
+    <string name="approve_unknown_account">Unknown account</string>
+    <string name="approve_uncategorized">Uncategorized</string>
+    <string name="approve_dialog_approve_title">✅ Approve Article</string>
+    <string name="approve_dialog_approve_message">Approve "%1$s"?\n\nThe article will be published to users.</string>
+    <string name="approve_dialog_approve_btn">Approve</string>
+    <string name="approve_dialog_reject_title">❌ Reject Article</string>
+    <string name="approve_dialog_reject_message">Reject "%1$s"?\n\nThe article will be moved to the rejected list.</string>
+    <string name="approve_dialog_reject_btn">Reject</string>
+    <string name="approve_dialog_delete_title">🗑 Delete Article</string>
+    <string name="approve_dialog_delete_message">Permanently delete "%1$s"?\n\nThis action cannot be undone.</string>
+
+    <!-- ══ Admin Bottom Navigation Menu ══ -->
+    <string name="admin_menu_home">Home</string>
+    <string name="admin_menu_approve">Approve</string>
+    <string name="admin_menu_add">Add</string>
+    <string name="admin_menu_stats">Statistics</string>
+    <string name="admin_menu_settings">Settings</string>
+
+    <!-- ══ Notifications Admin ══ -->
+    <string name="notif_new_article">📝  New Article</string>
+    <string name="notif_new_article_desc">Get notified when a new article is posted</string>
+    <string name="notif_pending">⏳  Pending Review</string>
+    <string name="notif_pending_desc">Get notified when an article is waiting for approval</string>
+    <string name="notif_system">🔔  System Notifications</string>
+    <string name="notif_system_desc">System updates and maintenance</string>
+    <string name="notif_saved">✅ Notification settings saved</string>
+
+    <!-- ══ Help Admin ══ -->
+    <string name="help_contact">📧  Technical support: support@tapchikhoakhoc.edu.vn</string>
+    <string name="help_email_subject">[Support] Science Journal Admin</string>
+    <string name="help_no_email_app">No email app found</string>
+
+    <!-- ══ FAQ Admin ══ -->
+    <string name="faq_q1">❓  How to add an article?</string>
+    <string name="faq_a1">Go to \'Article Management\' → tap \'+\' in the bottom right → fill in the details and tap \'Publish\'.</string>
+    <string name="faq_q2">❓  What are pending articles?</string>
+    <string name="faq_a2">Articles submitted by users that need Admin review. Go to \'Pending Articles\' to approve or reject them.</string>
+    <string name="faq_q3">❓  How to delete an article?</string>
+    <string name="faq_a3">Go to the article list → long press the article → select \'Delete\'. Note: this action cannot be undone.</string>
+    <string name="faq_q4">❓  Forgot admin password?</string>
+    <string name="faq_a4">Contact the system administrator or email: admin@tapchikhoakhoc.edu.vn to reset your password.</string>
+    <string name="faq_q5">❓  App is not working?</string>
+    <string name="faq_a5">Try closing and reopening the app. If the issue persists, contact technical support via the email below.</string>
+
+    <!-- ══ About Admin ══ -->
+    <string name="about_slogan">Modern scientific publishing platform</string>
+    <string name="about_version_label">📱  Version</string>
+    <string name="about_version_value">1.0.0 (Build 2024)</string>
+    <string name="about_org_label">🏢  Organization</string>
+    <string name="about_org_value">University of Science</string>
+    <string name="about_website_label">🌐  Website</string>
+    <string name="about_website_value">www.tapchikhoakhoc.edu.vn</string>
+    <string name="about_email_label">📧  Email</string>
+    <string name="about_email_value">info@tapchikhoakhoc.edu.vn</string>
+    <string name="about_phone_label">📞  Phone</string>
+    <string name="about_phone_value">(028) 3456 7890</string>
+    <string name="about_address_label">📍  Address</string>
+    <string name="about_address_value">123 Science Street, District 5, HCMC</string>
+    <string name="about_copyright">© 2024 Science Journal. All rights reserved.\nDeveloped by IT Team – Information Technology Department</string>
+
+</resources>

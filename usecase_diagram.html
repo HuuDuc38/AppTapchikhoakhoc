@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Biểu đồ Use Case – Phân rã Chi tiết</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&family=IM+Fell+English:ital@1&display=swap');
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: #f0ede8;
+      font-family: 'Times New Roman', Times, serif;
+      padding: 30px 20px 60px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #111;
+    }
+    .page-subtitle {
+      text-align: center;
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 36px;
+    }
+    .diagrams-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 36px;
+      justify-content: center;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .diagram-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .diagram-wrap svg {
+      background: #fff;
+      border: 1px solid #bbb;
+      box-shadow: 3px 3px 10px rgba(0,0,0,0.12);
+    }
+    .diagram-caption {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      font-style: italic;
+      font-weight: 600;
+      color: #111;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Biểu đồ Use Case – Phân rã Chi tiết</h1>
+<p class="page-subtitle">Ứng dụng Tạp chí Khoa học (Mobile App)</p>
+
+<div class="diagrams-grid">
+
+  <!-- ====================================================
+       DIAGRAM 1: Xác thực
+       UC01 Đăng nhập / Đăng ký
+       ==================================================== -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 380 440" width="380" height="440" xmlns="http://www.w3.org/2000/svg">
+      <!-- System boundary -->
+      <rect x="20" y="30" width="250" height="390" rx="4" fill="white" stroke="black" stroke-width="2"/>
+      <text x="145" y="22" text-anchor="middle" font-family="Times New Roman" font-size="14" font-weight="bold" fill="black">Hệ thống</text>
+
+      <!-- UC: Đăng nhập -->
+      <ellipse cx="145" cy="110" rx="90" ry="36" fill="white" stroke="black" stroke-width="2"/>
+      <text x="145" y="106" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Đăng nhập</text>
+      <text x="145" y="122" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">/ Đăng ký</text>
+
+      <!-- UC: Đăng ký tài khoản -->
+      <ellipse cx="145" cy="230" rx="90" ry="36" fill="white" stroke="black" stroke-width="2"/>
+      <text x="145" y="226" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Đăng ký</text>
+      <text x="145" y="242" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">tài khoản</text>
+
+      <!-- UC: Quên mật khẩu -->
+      <ellipse cx="145" cy="355" rx="90" ry="36" fill="white" stroke="black" stroke-width="2"/>
+      <text x="145" y="351" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Quên</text>
+      <text x="145" y="367" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">mật khẩu</text>
+
+      <!-- include: Đăng ký → Đăng nhập (dashed arrow up) -->
+      <line x1="145" y1="194" x2="145" y2="148" stroke="black" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <!-- arrowhead pointing UP toward UC01 -->
+      <polygon points="145,146 140,158 150,158" fill="black"/>
+      <text x="155" y="175" font-family="Times New Roman" font-size="11" font-style="italic" fill="black">«include»</text>
+
+      <!-- Actor (stick figure) -->
+      <!-- head -->
+      <circle cx="320" cy="185" r="22" fill="white" stroke="black" stroke-width="2"/>
+      <!-- body -->
+      <line x1="320" y1="207" x2="320" y2="268" stroke="black" stroke-width="2"/>
+      <!-- arms -->
+      <line x1="290" y1="232" x2="350" y2="232" stroke="black" stroke-width="2"/>
+      <!-- left leg -->
+      <line x1="320" y1="268" x2="295" y2="308" stroke="black" stroke-width="2"/>
+      <!-- right leg -->
+      <line x1="320" y1="268" x2="345" y2="308" stroke="black" stroke-width="2"/>
+      <!-- label -->
+      <text x="320" y="328" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Người dùng</text>
+
+      <!-- Associations Actor → UCs -->
+      <line x1="298" y1="175" x2="235" y2="120" stroke="black" stroke-width="1.5"/>
+      <line x1="298" y1="200" x2="235" y2="232" stroke="black" stroke-width="1.5"/>
+      <line x1="298" y1="220" x2="235" y2="348" stroke="black" stroke-width="1.5"/>
+    </svg>
+    <p class="diagram-caption">Hình 2.2  Biểu đồ Use Case – Xác thực</p>
+  </div>
+
+  <!-- ====================================================
+       DIAGRAM 2: Duyệt nội dung
+       ==================================================== -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 400 560" width="400" height="560" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="30" width="260" height="510" rx="4" fill="white" stroke="black" stroke-width="2"/>
+      <text x="150" y="22" text-anchor="middle" font-family="Times New Roman" font-size="14" font-weight="bold" fill="black">Hệ thống</text>
+
+      <!-- UC02 Xem trang chủ -->
+      <ellipse cx="150" cy="100" rx="100" ry="34" fill="white" stroke="black" stroke-width="2"/>
+      <text x="150" y="105" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Xem trang chủ</text>
+
+      <!-- UC03 Lọc danh mục -->
+      <ellipse cx="150" cy="195" rx="100" ry="34" fill="white" stroke="black" stroke-width="2"/>
+      <text x="150" y="191" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Lọc danh mục</text>
+      <text x="150" y="207" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">bài viết</text>
+
+      <!-- UC04 Xem bài nổi bật -->
+      <ellipse cx="150" cy="290" rx="100" ry="34" fill="white" stroke="black" stroke-width="2"/>
+      <text x="150" y="286" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Xem bài</text>
+      <text x="150" y="302" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">nổi bật</text>
+
+      <!-- UC05 Xem chi tiết -->
+      <ellipse cx="150" cy="385" rx="100" ry="34" fill="white" stroke="black" stroke-width="2"/>
+      <text x="150" y="381" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Xem chi tiết</text>
+      <text x="150" y="397" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">bài viết</text>
+
+      <!-- UC06 Tìm kiếm -->
+      <ellipse cx="150" cy="480" rx="100" ry="34" fill="white" stroke="black" stroke-width="2"/>
+      <text x="150" y="476" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Tìm kiếm</text>
+      <text x="150" y="492" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">bài viết</text>
+
+      <!-- Actor -->
+      <circle cx="345" cy="235" r="22" fill="white" stroke="black" stroke-width="2"/>
+      <line x1="345" y1="257" x2="345" y2="318" stroke="black" stroke-width="2"/>
+      <line x1="315" y1="282" x2="375" y2="282" stroke="black" stroke-width="2"/>
+      <line x1="345" y1="318" x2="320" y2="358" stroke="black" stroke-width="2"/>
+      <line x1="345" y1="318" x2="370" y2="358" stroke="black" stroke-width="2"/>
+      <text x="345" y="378" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Người dùng</text>
+
+      <!-- Associations -->
+      <line x1="323" y1="220" x2="250" y2="108" stroke="black" stroke-width="1.5"/>
+      <line x1="323" y1="228" x2="250" y2="198" stroke="black" stroke-width="1.5"/>
+      <line x1="323" y1="240" x2="250" y2="290" stroke="black" stroke-width="1.5"/>
+      <line x1="323" y1="252" x2="250" y2="380" stroke="black" stroke-width="1.5"/>
+      <line x1="323" y1="260" x2="250" y2="475" stroke="black" stroke-width="1.5"/>
+    </svg>
+    <p class="diagram-caption">Hình 2.3  Biểu đồ Use Case – Duyệt nội dung</p>
+  </div>
+
+  <!-- ====================================================
+       DIAGRAM 3: Tương tác bài viết
+       UC07 React, UC08 Bình luận, UC09 Chia sẻ, UC10 Đăng bài, UC11 Thông báo
+       include → UC01 (Đăng nhập)
+       ==================================================== -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 440 660" width="440" height="660" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="30" width="270" height="610" rx="4" fill="white" stroke="black" stroke-width="2"/>
+      <text x="155" y="22" text-anchor="middle" font-family="Times New Roman" font-size="14" font-weight="bold" fill="black">Hệ thống</text>
+
+      <!-- UC01 Đăng nhập (referenced) - at top, dashed oval -->
+      <ellipse cx="155" cy="95" rx="100" ry="32" fill="white" stroke="black" stroke-width="2" stroke-dasharray="6,3"/>
+      <text x="155" y="91" text-anchor="middle" font-family="Times New Roman" font-size="12" fill="#444">Đăng nhập</text>
+      <text x="155" y="106" text-anchor="middle" font-family="Times New Roman" font-size="12" fill="#444">/ Đăng ký (UC01)</text>
+
+      <!-- UC07 React / Thích bài -->
+      <ellipse cx="155" cy="195" rx="100" ry="32" fill="white" stroke="black" stroke-width="2"/>
+      <text x="155" y="191" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">React / Thích bài</text>
+      <text x="155" y="207" text-anchor="middle" font-family="Times New Roman" font-size="11" fill="#555">(UC07)</text>
+
+      <!-- include UC07 → UC01 -->
+      <line x1="155" y1="163" x2="155" y2="127" stroke="black" stroke-width="1.5" stroke-dasharray="5,4"/>
+      <polygon points="155,127 150,139 160,139" fill="black"/>
+      <text x="168" y="148" font-family="Times New Roman" font-size="11" font-style="italic" fill="black">«include»</text>
+
+      <!-- UC08 Bình luận -->
+      <ellipse cx="155" cy="295" rx="100" ry="32" fill="white" stroke="black" stroke-width="2"/>
+      <text x="155" y="291" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Bình luận</text>
+      <text x="155" y="307" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">bài viết (UC08)</text>
+
+      <!-- include UC08 → UC01 (dashed, curved left side) -->
+      <path d="M 55 295 Q 20 200 55 95" stroke="black" stroke-width="1.5" stroke-dasharray="5,4" fill="none"/>
+      <polygon points="55,95 49,107 59,107" fill="black"/>
+      <text x="22" y="200" font-family="Times New Roman" font-size="10" font-style="italic" fill="black" transform="rotate(-80,22,200)">«include»</text>
+
+      <!-- UC09 Chia sẻ -->
+      <ellipse cx="155" cy="395" rx="100" ry="32" fill="white" stroke="black" stroke-width="2"/>
+      <text x="155" y="391" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Chia sẻ</text>
+      <text x="155" y="407" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">bài viết (UC09)</text>
+
+      <!-- UC10 Đăng bài mới -->
+      <ellipse cx="155" cy="495" rx="100" ry="32" fill="white" stroke="black" stroke-width="2"/>
+      <text x="155" y="491" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Đăng bài mới</text>
+      <text x="155" y="507" text-anchor="middle" font-family="Times New Roman" font-size="11" fill="#555">(UC10)</text>
+
+      <!-- include UC10 → UC01 -->
+      <path d="M 57 488 Q 15 300 57 102" stroke="black" stroke-width="1.5" stroke-dasharray="5,4" fill="none"/>
+      <polygon points="57,102 51,114 61,114" fill="black"/>
+      <text x="10" y="300" font-family="Times New Roman" font-size="10" font-style="italic" fill="black" transform="rotate(-83,10,300)">«include»</text>
+
+      <!-- UC11 Xem thông báo -->
+      <ellipse cx="155" cy="590" rx="100" ry="32" fill="white" stroke="black" stroke-width="2"/>
+      <text x="155" y="586" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Xem thông báo</text>
+      <text x="155" y="602" text-anchor="middle" font-family="Times New Roman" font-size="11" fill="#555">(UC11)</text>
+
+      <!-- Actor -->
+      <circle cx="370" cy="310" r="22" fill="white" stroke="black" stroke-width="2"/>
+      <line x1="370" y1="332" x2="370" y2="393" stroke="black" stroke-width="2"/>
+      <line x1="340" y1="357" x2="400" y2="357" stroke="black" stroke-width="2"/>
+      <line x1="370" y1="393" x2="345" y2="433" stroke="black" stroke-width="2"/>
+      <line x1="370" y1="393" x2="395" y2="433" stroke="black" stroke-width="2"/>
+      <text x="370" y="453" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Người dùng</text>
+
+      <!-- No association to UC01 (UC01 is referenced, not directly used here) -->
+      <!-- Associations Actor → UCs -->
+      <line x1="348" y1="296" x2="255" y2="200" stroke="black" stroke-width="1.5"/>
+      <line x1="348" y1="308" x2="255" y2="298" stroke="black" stroke-width="1.5"/>
+      <line x1="348" y1="320" x2="255" y2="395" stroke="black" stroke-width="1.5"/>
+      <line x1="348" y1="332" x2="255" y2="493" stroke="black" stroke-width="1.5"/>
+      <line x1="348" y1="342" x2="255" y2="590" stroke="black" stroke-width="1.5"/>
+    </svg>
+    <p class="diagram-caption">Hình 2.4  Biểu đồ Use Case – Tương tác bài viết</p>
+  </div>
+
+  <!-- ====================================================
+       DIAGRAM 4: Cài đặt
+       UC12 Cài đặt → UC12.1 Ngôn ngữ, UC12.2 Cỡ chữ, UC12.3 Dark Mode
+       ==================================================== -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 420 500" width="420" height="500" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="30" width="270" height="450" rx="4" fill="white" stroke="black" stroke-width="2"/>
+      <text x="155" y="22" text-anchor="middle" font-family="Times New Roman" font-size="14" font-weight="bold" fill="black">Hệ thống</text>
+
+      <!-- UC12 Cài đặt (parent) -->
+      <ellipse cx="155" cy="105" rx="110" ry="38" fill="white" stroke="black" stroke-width="2"/>
+      <text x="155" y="101" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Cài đặt</text>
+      <text x="155" y="117" text-anchor="middle" font-family="Times New Roman" font-size="12" fill="#333">(Ngôn ngữ, Cỡ chữ, Dark Mode)</text>
+
+      <!-- UC12.1 Đổi ngôn ngữ -->
+      <ellipse cx="155" cy="225" rx="100" ry="32" fill="white" stroke="black" stroke-width="1.8"/>
+      <text x="155" y="221" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Đổi ngôn ngữ</text>
+      <text x="155" y="237" text-anchor="middle" font-family="Times New Roman" font-size="11" fill="#555">(UC12.1)</text>
+
+      <!-- include UC12 → UC12.1 -->
+      <line x1="155" y1="143" x2="155" y2="193" stroke="black" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <polygon points="155,193 150,181 160,181" fill="black"/>
+      <text x="162" y="173" font-family="Times New Roman" font-size="11" font-style="italic" fill="black">«include»</text>
+
+      <!-- UC12.2 Thay đổi cỡ chữ -->
+      <ellipse cx="155" cy="330" rx="100" ry="32" fill="white" stroke="black" stroke-width="1.8"/>
+      <text x="155" y="326" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Thay đổi cỡ chữ</text>
+      <text x="155" y="342" text-anchor="middle" font-family="Times New Roman" font-size="11" fill="#555">(UC12.2)</text>
+
+      <!-- include UC12 → UC12.2 (left path) -->
+      <path d="M 55 190 Q 30 280 55 330" stroke="black" stroke-width="1.5" stroke-dasharray="5,4" fill="none"/>
+      <polygon points="55,330 50,318 60,318" fill="black"/>
+      <text x="20" y="265" font-family="Times New Roman" font-size="10" font-style="italic" fill="black" transform="rotate(85,20,265)">«include»</text>
+
+      <!-- UC12.3 Bật/Tắt Dark Mode -->
+      <ellipse cx="155" cy="430" rx="100" ry="32" fill="white" stroke="black" stroke-width="1.8"/>
+      <text x="155" y="426" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Bật/Tắt Dark Mode</text>
+      <text x="155" y="442" text-anchor="middle" font-family="Times New Roman" font-size="11" fill="#555">(UC12.3)</text>
+
+      <!-- include UC12 → UC12.3 (far left path) -->
+      <path d="M 48 175 Q 15 310 48 428" stroke="black" stroke-width="1.5" stroke-dasharray="5,4" fill="none"/>
+      <polygon points="48,428 43,416 53,416" fill="black"/>
+      <text x="8" y="310" font-family="Times New Roman" font-size="10" font-style="italic" fill="black" transform="rotate(86,8,310)">«include»</text>
+
+      <!-- Actor -->
+      <circle cx="360" cy="220" r="22" fill="white" stroke="black" stroke-width="2"/>
+      <line x1="360" y1="242" x2="360" y2="303" stroke="black" stroke-width="2"/>
+      <line x1="330" y1="267" x2="390" y2="267" stroke="black" stroke-width="2"/>
+      <line x1="360" y1="303" x2="335" y2="343" stroke="black" stroke-width="2"/>
+      <line x1="360" y1="303" x2="385" y2="343" stroke="black" stroke-width="2"/>
+      <text x="360" y="363" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Người dùng</text>
+
+      <!-- Associations Actor → UC12 only (sub-UCs are include) -->
+      <line x1="338" y1="207" x2="265" y2="112" stroke="black" stroke-width="1.5"/>
+    </svg>
+    <p class="diagram-caption">Hình 2.5  Biểu đồ Use Case – Cài đặt</p>
+  </div>
+
+  <!-- ====================================================
+       DIAGRAM 5: Đăng xuất
+       ==================================================== -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 380 320" width="380" height="320" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="30" width="240" height="270" rx="4" fill="white" stroke="black" stroke-width="2"/>
+      <text x="140" y="22" text-anchor="middle" font-family="Times New Roman" font-size="14" font-weight="bold" fill="black">Hệ thống</text>
+
+      <!-- UC13 Đăng xuất -->
+      <ellipse cx="140" cy="130" rx="95" ry="34" fill="white" stroke="black" stroke-width="2"/>
+      <text x="140" y="126" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Đăng xuất</text>
+      <text x="140" y="142" text-anchor="middle" font-family="Times New Roman" font-size="11" fill="#555">(UC13)</text>
+
+      <!-- UC01 Confirm (referenced, dashed oval) -->
+      <ellipse cx="140" cy="245" rx="95" ry="34" fill="white" stroke="black" stroke-width="2" stroke-dasharray="6,3"/>
+      <text x="140" y="241" text-anchor="middle" font-family="Times New Roman" font-size="12" fill="#444">Xác nhận đăng xuất</text>
+      <text x="140" y="257" text-anchor="middle" font-family="Times New Roman" font-size="11" fill="#888">(hộp thoại)</text>
+
+      <!-- extend: Đăng xuất extends Xác nhận -->
+      <line x1="140" y1="164" x2="140" y2="211" stroke="black" stroke-width="1.5" stroke-dasharray="5,4"/>
+      <polygon points="140,211 135,199 145,199" fill="black"/>
+      <text x="148" y="192" font-family="Times New Roman" font-size="11" font-style="italic" fill="black">«extend»</text>
+
+      <!-- Actor -->
+      <circle cx="315" cy="155" r="22" fill="white" stroke="black" stroke-width="2"/>
+      <line x1="315" y1="177" x2="315" y2="238" stroke="black" stroke-width="2"/>
+      <line x1="285" y1="202" x2="345" y2="202" stroke="black" stroke-width="2"/>
+      <line x1="315" y1="238" x2="290" y2="278" stroke="black" stroke-width="2"/>
+      <line x1="315" y1="238" x2="340" y2="278" stroke="black" stroke-width="2"/>
+      <text x="315" y="297" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Người dùng</text>
+
+      <!-- Association Actor → UC13 -->
+      <line x1="293" y1="148" x2="235" y2="133" stroke="black" stroke-width="1.5"/>
+    </svg>
+    <p class="diagram-caption">Hình 2.6  Biểu đồ Use Case – Đăng xuất</p>
+  </div>
+
+  <!-- ====================================================
+       DIAGRAM 6: Đăng bài mới (phân rã chi tiết)
+       ==================================================== -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 400 500" width="400" height="500" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="30" width="260" height="450" rx="4" fill="white" stroke="black" stroke-width="2"/>
+      <text x="150" y="22" text-anchor="middle" font-family="Times New Roman" font-size="14" font-weight="bold" fill="black">Hệ thống</text>
+
+      <!-- UC01 Đăng nhập (referenced) -->
+      <ellipse cx="150" cy="90" rx="95" ry="32" fill="white" stroke="black" stroke-width="2" stroke-dasharray="6,3"/>
+      <text x="150" y="86" text-anchor="middle" font-family="Times New Roman" font-size="12" fill="#444">Đăng nhập</text>
+      <text x="150" y="101" text-anchor="middle" font-family="Times New Roman" font-size="12" fill="#444">/ Đăng ký (UC01)</text>
+
+      <!-- UC10 Đăng bài mới -->
+      <ellipse cx="150" cy="195" rx="100" ry="33" fill="white" stroke="black" stroke-width="2"/>
+      <text x="150" y="191" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Đăng bài mới</text>
+      <text x="150" y="207" text-anchor="middle" font-family="Times New Roman" font-size="11" fill="#555">(UC10)</text>
+
+      <!-- include UC10 → UC01 -->
+      <line x1="150" y1="162" x2="150" y2="122" stroke="black" stroke-width="1.5" stroke-dasharray="5,4"/>
+      <polygon points="150,122 145,134 155,134" fill="black"/>
+      <text x="158" y="145" font-family="Times New Roman" font-size="11" font-style="italic" fill="black">«include»</text>
+
+      <!-- UC: Soạn nội dung bài -->
+      <ellipse cx="150" cy="300" rx="100" ry="32" fill="white" stroke="black" stroke-width="1.8"/>
+      <text x="150" y="296" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Soạn nội dung</text>
+      <text x="150" y="311" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">bài viết</text>
+
+      <!-- include UC10 → Soạn nội dung -->
+      <path d="M 52 220 Q 30 260 52 300" stroke="black" stroke-width="1.5" stroke-dasharray="5,4" fill="none"/>
+      <polygon points="52,300 47,288 57,288" fill="black"/>
+      <text x="15" y="262" font-family="Times New Roman" font-size="10" font-style="italic" fill="black" transform="rotate(83,15,262)">«include»</text>
+
+      <!-- UC: Tải ảnh bìa -->
+      <ellipse cx="150" cy="405" rx="100" ry="32" fill="white" stroke="black" stroke-width="1.8"/>
+      <text x="150" y="401" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Tải ảnh bìa</text>
+      <text x="150" y="417" text-anchor="middle" font-family="Times New Roman" font-size="11" fill="#555">(Firebase Storage)</text>
+
+      <!-- extend: Đăng bài mới extends Tải ảnh -->
+      <path d="M 50 228 Q 22 320 50 404" stroke="black" stroke-width="1.5" stroke-dasharray="5,4" fill="none"/>
+      <polygon points="50,404 45,392 55,392" fill="black"/>
+      <text x="8" y="320" font-family="Times New Roman" font-size="10" font-style="italic" fill="black" transform="rotate(86,8,320)">«extend»</text>
+
+      <!-- Actor -->
+      <circle cx="345" cy="230" r="22" fill="white" stroke="black" stroke-width="2"/>
+      <line x1="345" y1="252" x2="345" y2="313" stroke="black" stroke-width="2"/>
+      <line x1="315" y1="277" x2="375" y2="277" stroke="black" stroke-width="2"/>
+      <line x1="345" y1="313" x2="320" y2="353" stroke="black" stroke-width="2"/>
+      <line x1="345" y1="313" x2="370" y2="353" stroke="black" stroke-width="2"/>
+      <text x="345" y="373" text-anchor="middle" font-family="Times New Roman" font-size="13" fill="black">Người dùng</text>
+
+      <line x1="323" y1="218" x2="250" y2="196" stroke="black" stroke-width="1.5"/>
+    </svg>
+    <p class="diagram-caption">Hình 2.7  Biểu đồ Use Case – Đăng bài mới</p>
+  </div>
+
+</div><!-- end diagrams-grid -->
+
+<p style="text-align:center;margin-top:40px;font-size:0.9rem;font-style:italic;color:#666;">
+  Biểu đồ Use Case – Phân rã Chi tiết &nbsp;|&nbsp; Ứng dụng Tạp chí Khoa học
+</p>
+
+</body>
+</html>

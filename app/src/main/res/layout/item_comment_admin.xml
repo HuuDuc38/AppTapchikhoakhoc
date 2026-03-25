@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <!-- Row 1: Avatar + tên + badge + nút xóa -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Avatar -->
+            <TextView
+                android:id="@+id/tvAvatar"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/avatar_bg"
+                android:layout_marginEnd="10dp" />
+
+            <!-- Tên + badge -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#111111" />
+
+                <TextView
+                    android:id="@+id/badgeViolated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vi phạm"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/badge_red"
+                    android:paddingStart="7dp"
+                    android:paddingEnd="7dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_marginStart="7dp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <!-- Thời gian -->
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#666666"
+                android:layout_marginEnd="8dp" />
+
+            <!-- Nút xóa -->
+            <ImageView
+                android:id="@+id/btnDelete"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_delete_24"
+                android:tint="#D32F2F"
+                android:padding="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </LinearLayout>
+
+        <!-- Nội dung comment -->
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_marginTop="10dp"
+            android:lineSpacingMultiplier="1.4" />
+
+        <!-- Tên bài viết -->
+        <TextView
+            android:id="@+id/tvArticleTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#666666"
+            android:layout_marginTop="6dp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <!-- Divider cảnh báo -->
+        <View
+            android:id="@+id/dividerViolated"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFCDD2"
+            android:layout_marginTop="10dp"
+            android:visibility="gone" />
+
+        <!-- Cảnh báo vi phạm -->
+        <LinearLayout
+            android:id="@+id/layoutViolatedWarn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_warning"
+                android:tint="#D32F2F"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bình luận chứa ngôn ngữ không phù hợp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#D32F2F" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

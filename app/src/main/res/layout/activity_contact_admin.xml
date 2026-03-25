@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootContactLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F7FA">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2D68C4"
+        app:elevation="4dp">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/contact_toolbar_title"
+            app:titleTextColor="#FFFFFF"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="top|center_horizontal"
+        android:padding="24dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/admin"
+            android:contentDescription="@string/contact_toolbar_title"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:id="@+id/tvContactTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contact_title"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A1A"
+            android:gravity="center"
+            android:layout_marginBottom="40dp" />
+
+        <!-- Card: Gọi điện -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardCall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="#FFFFFF">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="20dp" android:gravity="center_vertical">
+                <ImageView android:layout_width="40dp" android:layout_height="40dp" android:src="@android:drawable/ic_menu_call" app:tint="#2D68C4" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="16dp">
+                    <TextView android:id="@+id/tvLabelCall" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/contact_label_call" android:textSize="13sp" android:textColor="#666666" />
+                    <TextView android:id="@+id/tvHotline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0969 720 324" android:textSize="15sp" android:textStyle="bold" android:textColor="#2D68C4" android:layout_marginTop="4dp" />
+                </LinearLayout>
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_send" app:tint="#BDBDBD" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card: Gửi email -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="#FFFFFF">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="20dp" android:gravity="center_vertical">
+                <ImageView android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/email" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="16dp">
+                    <TextView android:id="@+id/tvLabelEmail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/contact_label_email" android:textSize="13sp" android:textColor="#666666" />
+                    <TextView android:id="@+id/tvEmail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="nguyenhuuduc26072004@gmail.com" android:textSize="14sp" android:textStyle="bold" android:textColor="#2D68C4" android:layout_marginTop="4dp" android:ellipsize="end" android:maxLines="1" />
+                </LinearLayout>
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_send" app:tint="#BDBDBD" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card: Zalo -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardZalo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="#FFFFFF">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="20dp" android:gravity="center_vertical">
+                <ImageView android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/ic_zalo" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="16dp">
+                    <TextView android:id="@+id/tvLabelZalo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/contact_label_zalo" android:textSize="13sp" android:textColor="#666666" />
+                    <TextView android:id="@+id/tvZalo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0969 720 324" android:textSize="15sp" android:textStyle="bold" android:textColor="#2D68C4" android:layout_marginTop="4dp" />
+                </LinearLayout>
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_send" app:tint="#BDBDBD" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

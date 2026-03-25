@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ColorCircleButton">
+        <item name="android:button">@null</item>
+        <item name="android:background">@drawable/circle_color_setting</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="colorPrimary">#C8463D</item>
+        <item name="colorPrimaryVariant">#B02E2E</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+    </style>
+    <style name="EditorToolbarButton" parent="Widget.Material3.Button.IconButton">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="iconTint">#555555</item> <!-- Màu icon xám đậm, đẹp -->
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+    <!-- Thêm vào res/values/styles.xml -->
+    <style name="BottomSheetStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="BottomSheet" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/dialog_sheet_bg</item>
+    </style>
+</resources>

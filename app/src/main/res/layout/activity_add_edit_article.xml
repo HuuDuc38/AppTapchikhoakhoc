@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootContent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FAFAFA">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/toolbar_gradient_red"
+        app:title="@string/add_article_title"
+        app:titleTextColor="@android:color/white"
+        app:titleTextAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+        app:navigationIcon="@drawable/ic_arrow_back" />
+
+    <TextView
+        android:id="@+id/tvPendingBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/pending_banner_bg"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="@string/add_article_pending_banner"
+        android:textColor="#FFCC00"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/rootScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Tiêu đề -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutTitle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:hintTextColor="#9D4EDD"
+                app:boxStrokeColor="#9D4EDD">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/add_article_hint_title"
+                    android:textSize="18sp"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLines="3" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Tác giả -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutAuthor"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAuthor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/add_article_hint_author"
+                    android:text="Admin" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Danh mục -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutCategory"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+                <AutoCompleteTextView
+                    android:id="@+id/spinnerCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/add_article_hint_category"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Section: Ảnh bìa -->
+            <TextView
+                android:id="@+id/tvSectionImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_article_section_image"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="#212121"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"
+                        android:layout_marginBottom="16dp">
+                        <ImageView
+                            android:id="@+id/imgPreview"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:visibility="gone"
+                            android:contentDescription="@string/add_article_section_image" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnRemoveImage"
+                            style="@style/Widget.Material3.Button.Icon"
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:layout_gravity="end|top"
+                            android:layout_margin="12dp"
+                            app:icon="@drawable/ic_close"
+                            app:iconTint="#FFFFFF"
+                            app:backgroundTint="#AA000000"
+                            app:cornerRadius="22dp"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:id="@+id/placeholderImage"
+                            android:layout_width="324dp"
+                            android:layout_height="match_parent"
+                            android:background="#F5F5F5"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:src="@drawable/gallery"
+                                app:tint="#BBBBBB" />
+
+                            <TextView
+                                android:id="@+id/tvPlaceholderImageText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:text="@string/add_article_placeholder_image"
+                                android:textColor="#999999"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </FrameLayout>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnPickImage"
+                        style="@style/Widget.Material3.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="@string/add_article_btn_pick_image"
+                        app:icon="@drawable/gallery"
+                        app:iconGravity="start"
+                        app:iconPadding="16dp"
+                        app:cornerRadius="28dp"
+                        android:backgroundTint="#9D4EDD"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Section: Video -->
+            <TextView
+                android:id="@+id/tvSectionVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_article_section_video"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="#212121"
+                android:layout_marginBottom="12dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardVideo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <FrameLayout
+                        android:id="@+id/videoPreviewContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"
+                        android:layout_marginBottom="16dp">
+                        <ImageView
+                            android:id="@+id/imgVideoThumbnail"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:background="#000000"
+                            android:visibility="gone"
+                            android:contentDescription="Video thumbnail" />
+                        <ImageView
+                            android:id="@+id/imgPlayIcon"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_play"
+                            android:background="@drawable/play_button_background"
+                            android:padding="20dp"
+                            android:visibility="gone"
+                            android:contentDescription="Play video" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnRemoveVideo"
+                            style="@style/Widget.Material3.Button.Icon"
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:layout_gravity="end|top"
+                            android:layout_margin="12dp"
+                            app:icon="@drawable/ic_close"
+                            app:iconTint="#FFFFFF"
+                            app:backgroundTint="#AA000000"
+                            app:cornerRadius="22dp"
+                            android:visibility="gone" />
+                        <LinearLayout
+                            android:id="@+id/placeholderVideo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="#F5F5F5"
+                            android:visibility="visible">
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:src="@drawable/video"
+                                app:tint="#BBBBBB" />
+                            <TextView
+                                android:id="@+id/tvPlaceholderVideoText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/add_article_placeholder_video"
+                                android:textColor="#999999"
+                                android:textSize="14dp"
+                                android:layout_marginTop="12dp" />
+                        </LinearLayout>
+                    </FrameLayout>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnPickVideo"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="@string/add_article_btn_pick_video"
+                        app:icon="@drawable/video"
+                        app:iconGravity="start"
+                        app:iconPadding="16dp"
+                        app:cornerRadius="28dp"
+                        app:strokeColor="#9D4EDD"
+                        app:strokeWidth="2dp"
+                        android:textColor="#9D4EDD" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Section: Nội dung -->
+            <TextView
+                android:id="@+id/tvSectionContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_article_section_content"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="#212121"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvPasteImageHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_article_paste_hint"
+                android:textSize="13sp"
+                android:textColor="#7B2CBF"
+                android:textStyle="italic"
+                android:layout_marginBottom="12dp"
+                android:visibility="gone" />
+
+            <HorizontalScrollView
+                android:id="@+id/editorToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F8F9FA"
+                android:padding="1dp"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <ImageButton android:id="@+id/action_bold" style="@style/EditorToolbarButton" app:srcCompat="@drawable/ic_format_bold" android:contentDescription="@string/add_article_toolbar_bold" />
+                    <ImageButton android:id="@+id/action_italic" style="@style/EditorToolbarButton" app:srcCompat="@drawable/ic_format_italic" android:contentDescription="@string/add_article_toolbar_italic" />
+                    <ImageButton android:id="@+id/action_underline" style="@style/EditorToolbarButton" app:srcCompat="@drawable/ic_format_underlined" android:contentDescription="@string/add_article_toolbar_underline" />
+                    <View android:layout_width="1dp" android:layout_height="32dp" android:background="#D0D0D0" android:layout_marginHorizontal="12dp" />
+                    <ImageButton android:id="@+id/action_align_left" style="@style/EditorToolbarButton" app:srcCompat="@drawable/ic_format_align_left" android:contentDescription="@string/add_article_toolbar_align_left" />
+                    <ImageButton android:id="@+id/action_align_center" style="@style/EditorToolbarButton" app:srcCompat="@drawable/ic_format_align_center" android:contentDescription="@string/add_article_toolbar_align_center" />
+                    <ImageButton android:id="@+id/action_align_right" style="@style/EditorToolbarButton" app:srcCompat="@drawable/ic_format_align_right" android:contentDescription="@string/add_article_toolbar_align_right" />
+                    <ImageButton android:id="@+id/action_align_justify" style="@style/EditorToolbarButton" app:srcCompat="@drawable/ic_format_align_justify" android:contentDescription="@string/add_article_toolbar_align_justify" />
+                    <View android:layout_width="1dp" android:layout_height="32dp" android:background="#D0D0D0" android:layout_marginHorizontal="12dp" />
+                    <ImageButton android:id="@+id/action_insert_image1" style="@style/EditorToolbarButton" app:srcCompat="@drawable/ic_insert_photo1" android:contentDescription="@string/add_article_toolbar_insert_image" />
+                    <ImageButton android:id="@+id/action_bullet_list" style="@style/EditorToolbarButton" app:srcCompat="@drawable/ic_format_list_bulleted" android:contentDescription="@string/add_article_toolbar_bullet" />
+                    <ImageButton android:id="@+id/action_number_list" style="@style/EditorToolbarButton" app:srcCompat="@drawable/ic_format_list_numbered" android:contentDescription="@string/add_article_toolbar_number" />
+                    <ImageButton android:id="@+id/action_link" style="@style/EditorToolbarButton" app:srcCompat="@drawable/ic_insert_link" android:contentDescription="@string/add_article_toolbar_link" />
+                    <ImageButton android:id="@+id/action_strikethrough" style="@style/EditorToolbarButton" app:srcCompat="@drawable/ic_format_strikethrough" android:contentDescription="@string/add_article_toolbar_strikethrough" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardEditor"
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <View android:id="@+id/editorTopSpacer" android:layout_width="match_parent" android:layout_height="60dp" android:background="#FFFFFF" />
+                    <jp.wasabeef.richeditor.RichEditor
+                        android:id="@+id/reEditor"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="16dp"
+                        android:clipToPadding="false" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/progressLoading"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:visibility="gone"
+                app:indicatorColor="#9D4EDD" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="32dp"
+                android:text="@string/add_article_btn_submit"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="32dp"
+                android:backgroundTint="#9D4EDD"
+                android:textColor="@android:color/white"
+                app:icon="@drawable/ic_send"
+                app:iconGravity="textStart"
+                app:iconPadding="12dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F4F6F8">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:background="@drawable/toolbar_gradient_red"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/back"
+            android:tint="@android:color/white"
+            android:padding="8dp"
+            android:background="@drawable/ripple_circle_white" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Danh sách người dùng"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tất cả tài khoản đã đăng ký"
+                android:textColor="#CCF0FFFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="2dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- Summary card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardTotalUsers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@android:color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+
+                    <!-- Icon người dùng -->
+                    <LinearLayout
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:background="@drawable/user_icon_bg"
+                        android:layout_marginEnd="14dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_person"
+                            android:tint="#7B1FA2" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tổng người dùng"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:textColor="#555555" />
+
+                        <TextView
+                            android:id="@+id/tvSummaryTotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            android:textColor="#111111"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvSummaryLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="tài khoản"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="#7B1FA2" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Section label -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DANH SÁCH TÀI KHOẢN"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#777777"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="4dp" />
+
+            <!-- Empty -->
+            <TextView
+                android:id="@+id/tvEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chưa có người dùng nào"
+                android:gravity="center"
+                android:padding="40dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#888888"
+                android:visibility="gone" />
+
+            <!-- List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

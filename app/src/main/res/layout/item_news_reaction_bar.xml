@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardActionBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EDEDED"/>
+
+        <!-- Thanh 3 nút -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- THÍCH -->
+            <LinearLayout
+                android:id="@+id/layoutLike"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackgroundBorderless">
+                <ImageView android:id="@+id/imgLike" android:layout_width="26dp" android:layout_height="26dp" android:src="@drawable/like" app:tint="#606770" />
+                <TextView android:id="@+id/tvLike" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:fontFamily="sans-serif-medium" android:text="@string/action_like" android:textColor="#606770" android:textSize="15sp" />
+                <TextView android:id="@+id/tvLikeCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:textColor="#606770" android:textSize="14sp" android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- BÌNH LUẬN -->
+            <LinearLayout
+                android:id="@+id/layoutComment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackgroundBorderless">
+                <ImageView android:layout_width="26dp" android:layout_height="26dp" android:src="@drawable/comment" app:tint="#606770" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:fontFamily="sans-serif-medium" android:text="@string/action_comment" android:textColor="#606770" android:textSize="15sp" />
+            </LinearLayout>
+
+            <!-- CHIA SẺ -->
+            <LinearLayout
+                android:id="@+id/layoutShare"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackgroundBorderless">
+                <ImageView android:layout_width="26dp" android:layout_height="26dp" android:src="@drawable/share" app:tint="#606770" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:fontFamily="sans-serif-medium" android:text="@string/action_share" android:textColor="#606770" android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EDEDED"/>
+
+        <!-- Input bình luận -->
+        <LinearLayout
+            android:id="@+id/layoutCommentInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:background="#F8F9FA"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/etComment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/action_comment_hint"
+                android:background="@drawable/comment"
+                android:padding="12dp"
+                android:textSize="15sp"
+                android:maxLines="5"
+                android:inputType="textCapSentences|textMultiLine"
+                android:imeOptions="actionSend" />
+
+            <Button
+                android:id="@+id/btnSendComment"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="12dp"
+                android:text="@string/action_send"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:backgroundTint="#007BFF"
+                android:textColor="#FFFFFF"
+                android:minWidth="70dp" />
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="8dp" android:background="#F0F2F5"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="card_background">#FFFFFF</color>
+    <color name="background">#F5F5F5</color>
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#9E9E9E</color>
+    <color name="divider">#F0F0F0</color>
+    <color name="notif_background">#2B3040</color>       <!-- nền tổng: xám xanh trung -->
+    <color name="notif_card_background">#353B4A</color>  <!-- card: sáng hơn nền 1 chút -->
+    <color name="notif_text_primary">#E8ECF0</color>     <!-- tiêu đề: trắng nhẹ, không chói -->
+    <color name="notif_text_secondary">#9AA3B0</color>   <!-- tác giả: xám nhạt -->
+    <color name="notif_text_time">#6E7A8A</color>        <!-- thời gian: xám mờ -->
+    <color name="notif_divider">#3E4556</color>          <!-- divider: nhạt hơn nền chút -->
+    <color name="notif_section_title">#E8ECF0</color>    <!-- tiêu đề section -->
+
+</resources>

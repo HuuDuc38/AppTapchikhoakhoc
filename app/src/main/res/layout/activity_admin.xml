@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootAdminLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F5FF"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:elevation="4dp">
+
+        <LinearLayout
+            android:id="@+id/toolbarAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/toolbar_gradient_red"
+            android:orientation="vertical"
+            android:fitsSystemWindows="true"
+            android:paddingTop="0dp"
+            android:paddingBottom="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:contentDescription="@string/register_back"
+                    android:focusable="true"
+                    android:padding="12dp"
+                    android:src="@drawable/back"
+                    app:tint="@android:color/white" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/admin_welcome_line1"
+                        android:textColor="@android:color/white"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:letterSpacing="0.15"
+                        android:text="@string/admin_welcome_line2"
+                        android:textColor="#FFFF80"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/btn_search"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:contentDescription="@string/search_hint"
+                    android:focusable="true"
+                    android:padding="12dp"
+                    android:src="@drawable/search"
+                    app:tint="@android:color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerAdminArticles"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="80dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <!-- BottomNav TRƯỚC -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:fitsSystemWindows="true"
+        app:elevation="12dp"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_admin_bottom_nav" />
+
+    <!-- FAB container SAU BottomNav → vẽ đè lên trên -->
+    <LinearLayout
+        android:id="@+id/fab_container"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="1dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:elevation="20dp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_dang_bai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_24"
+            android:contentDescription="Đăng bài"
+            app:backgroundTint="#C54962"
+            app:tint="@android:color/white"
+            app:fabSize="mini"
+            app:elevation="20dp"
+            app:rippleColor="#0D47A1"
+            app:borderWidth="0dp" />
+
+        <TextView
+            android:id="@+id/fab_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng bài"
+            android:textColor="@android:color/white"
+            android:textSize="11sp"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

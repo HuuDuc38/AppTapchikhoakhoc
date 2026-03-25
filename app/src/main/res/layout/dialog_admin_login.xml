@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F7FA">
+
+    <!-- NÚT QUAY LẠI -->
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Quay lại"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        app:tint="#666666" />
+
+    <!-- Nội dung chính -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp"
+        android:layout_centerInParent="true">
+
+        <!-- Logo -->
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/login"
+            android:contentDescription="Logo"
+            android:layout_marginBottom="40dp" />
+
+        <!-- Tiêu đề -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ĐĂNG NHẬP QUẢN TRỊ"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A1A"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng nhập để tiếp tục"
+            android:textSize="16sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="40dp"/>
+
+        <!-- Email -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Mật khẩu -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:hint="Mật khẩu"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Quên mật khẩu -->
+        <TextView
+            android:id="@+id/tvForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="#2D68C4"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
+
+        <!-- Nút Đăng nhập + Loading -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="32dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Đăng nhập"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                app:cornerRadius="12dp"
+                android:backgroundTint="#2D68C4" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/progressLoading"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:indicatorColor="#FFFFFF"
+                app:indicatorSize="36dp"
+                app:trackThickness="4dp"/>
+        </FrameLayout>
+
+        <!-- Liên hệ admin -->
+        <TextView
+            android:id="@+id/tvContactAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Liên hệ quản trị viên để được cấp tài khoản"
+            android:textColor="#2D68C4"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+
+    <application
+
+        android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppTapchikhoakhoc"
+        tools:targetApi="31">
+        <activity
+            android:name=".main.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".main.SettingsActivity" />
+        <activity android:name=".search.SearchActivity" />
+        <activity android:name=".main.LoginActivity"/>
+        <activity android:name=".register.RegisterActivity"/>
+        <activity android:name=".admin.LoginAdminActivity"/>
+        <activity android:name=".admin.AdminActivity"/>
+        <activity android:name=".admin.ContactAdminActivity" />
+        <activity android:name=".admin.ApproveArticleActivity" />
+        <activity android:name=".admin.StatsActivity" />
+        <activity android:name=".main.PrivacyActivity" />
+        <activity android:name=".main.NotificationsActivity" />
+        <activity android:name=".admin.ViewStatsDetailActivity" />
+        <activity android:name=".main.FeaturedActivity" />
+
+        <activity
+            android:name=".admin.AddEditArticleActivity"
+            android:exported="false"
+            android:parentActivityName=".admin.AdminActivity" />
+
+        <activity
+            android:name=".admin.LikeStatsDetailActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".admin.SettingsActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".admin.SearchActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".main.ArticleDetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false" />
+        <activity android:name=".admin.UserStatsDetailActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".admin.CommentStatsDetailActivity" />
+        <activity
+            android:name=".main.AddEditArticleActivity"
+            android:theme="@style/Theme.AppTapchikhoakhoc" />
+
+    </application>
+
+
+</manifest>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_home"        android:title="@string/menu_home" />
+    <item android:id="@+id/nav_news"        android:title="@string/menu_news" />
+    <item android:id="@+id/nav_policy"      android:title="@string/menu_training" />
+    <item android:id="@+id/nav_attack"      android:title="@string/menu_jobs" />
+    <item android:id="@+id/nav_certificate" android:title="@string/menu_science" />
+    <item android:id="@+id/nav_crypto"      android:title="@string/menu_cooperation" />
+    <item android:id="@+id/nav_intro"       android:title="@string/menu_intro" />
+</menu>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/featured_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F3EF">
+
+    <!-- TOOLBAR -->
+    <LinearLayout
+        android:id="@+id/featured_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="12dp"
+        android:background="@drawable/toolbar_gradient_red"
+        android:elevation="4dp">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_arrow_back"
+            android:background="@drawable/bg_circle_white_alpha"
+            android:padding="10dp"
+            android:contentDescription="Quay lại" />
+
+        <TextView
+            android:id="@+id/tv_toolbar_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nổi bật"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingStart="10dp"
+            android:fontFamily="serif" />
+
+        <TextView
+            android:id="@+id/tv_article_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="#DDDDDD" />
+
+    </LinearLayout>
+
+    <!-- SCROLL CONTENT -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/featured_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/featured_scroll_inner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+            <!-- HERO CARD -->
+            <FrameLayout
+                android:id="@+id/card_hero"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <ImageView
+                    android:id="@+id/img_hero"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:background="#2C2C2A" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/gradient_overlay_bottom" />
+
+                <TextView
+                    android:id="@+id/tv_hero_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:layout_margin="14dp"
+                    android:textSize="10sp"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.06"
+                    android:background="@drawable/bg_category_tag_red"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:orientation="vertical"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="14dp">
+
+                    <TextView
+                        android:id="@+id/tv_hero_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:lineSpacingMultiplier="1.35"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:shadowColor="#99000000"
+                        android:shadowDx="0"
+                        android:shadowDy="1"
+                        android:shadowRadius="4"
+                        android:layout_marginBottom="6dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/tv_hero_avatar"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:textSize="8sp"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:background="@drawable/bg_avatar_red"
+                            android:layout_marginEnd="6dp" />
+
+                        <TextView
+                            android:id="@+id/tv_hero_author"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textSize="11sp"
+                            android:textColor="#DDDDDD"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:id="@+id/tv_hero_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="10.5sp"
+                            android:textColor="#CCCCCC" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <!-- SECTION HEADER: BÀI VIẾT KHÁC -->
+            <LinearLayout
+                android:id="@+id/layout_section_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="10dp"
+                android:visibility="gone">
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="16dp"
+                    android:background="#C0392B"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/tv_section_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BÀI VIẾT KHÁC"
+                    android:textSize="12.5sp"
+                    android:textStyle="bold"
+                    android:textColor="#2C2C2A"
+                    android:letterSpacing="0.05" />
+
+            </LinearLayout>
+
+            <!-- RECYCLERVIEW -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_featured"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:nestedScrollingEnabled="false"
+                android:clipToPadding="false"
+                android:visibility="gone" />
+
+            <!-- EMPTY STATE -->
+            <LinearLayout
+                android:id="@+id/layout_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="48dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:src="@drawable/ic_article_placeholder"
+                    android:alpha="0.35"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chưa có bài viết nổi bật."
+                    android:textColor="#AAAAAA"
+                    android:textSize="14sp"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

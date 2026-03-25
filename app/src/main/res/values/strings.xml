@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App name -->
+    <string name="app_name">Tạp Chí Khoa Học</string>
+
+    <!-- Settings screen labels -->
+    <string name="settings_title">Hồ sơ</string>
+    <string name="settings_guest">Khách</string>
+    <string name="settings_login_prompt">Đăng nhập để trải nghiệm đầy đủ</string>
+
+    <!-- Section headers -->
+    <string name="section_interface">GIAO DIỆN</string>
+    <string name="section_customize">TÙY CHỈNH</string>
+    <string name="section_support">HỖ TRỢ</string>
+
+    <!-- Dark mode -->
+    <string name="dark_mode_title">Chế độ tối</string>
+    <string name="dark_mode_subtitle">Bảo vệ mắt khi dùng ban đêm</string>
+
+    <!-- Language -->
+    <string name="language_title">Ngôn ngữ</string>
+    <string name="language_vietnamese">Tiếng Việt</string>
+    <string name="language_english">English</string>
+
+    <!-- Text size -->
+    <string name="text_size_title">Kích thước chữ</string>
+    <string name="text_size_small">Nhỏ</string>
+    <string name="text_size_medium">Trung bình</string>
+    <string name="text_size_large">Lớn</string>
+
+    <string name="privacy_title">Quyền riêng tư</string>
+    <string name="privacy_subtitle">Quản lý tài khoản</string>
+
+    <!-- Notification -->
+    <string name="notification_title">Quyền riêng tư</string>
+    <string name="notification_subtitle">Quản lý tài khoản </string>
+    <string name="notification_open">Đang mở cài đặt thông báo…</string>
+
+    <!-- Help -->
+    <string name="help_title">Trợ giúp và Hỗ trợ</string>
+    <string name="help_subtitle">Câu hỏi thường gặp</string>
+
+    <!-- About -->
+    <string name="about_title">Về chúng tôi</string>
+    <string name="about_subtitle">Phiên bản 1.0.0</string>
+
+    <!-- Admin login -->
+    <string name="admin_login_title">Đăng nhập quản trị</string>
+    <string name="admin_login_subtitle">Dành cho quản trị viên</string>
+
+    <!-- Logout -->
+    <string name="logout">Đăng xuất</string>
+    <string name="logged_out">Đã đăng xuất</string>
+    <string name="email_not_updated">Chưa cập nhật</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_cancel">Hủy</string>
+    <string name="dialog_close">Đóng</string>
+    <string name="dialog_language_title">Chọn ngôn ngữ</string>
+    <string name="dialog_text_size_title">Kích thước chữ</string>
+    <string name="dialog_help_title">Trợ giúp</string>
+    <string name="dialog_help_message">Nếu bạn gặp sự cố, vui lòng liên hệ hỗ trợ qua email hoặc trang web chính thức của chúng tôi.</string>
+    <string name="dialog_about_title">Về ứng dụng</string>
+    <string name="dialog_about_message">Tạp Chí Khoa Học v1.0.0\nPhát triển bởi nhóm nghiên cứu.\n© 2024 Bản quyền được bảo lưu.</string>
+    <string name="dialog_logout_title">Xác nhận đăng xuất</string>
+    <string name="dialog_logout_message">Bạn có chắc chắn muốn đăng xuất không?</string>
+    <string name="dialog_user_info_title">Thông tin người dùng</string>
+    <string name="dialog_user_info_message">Tên: %1$s\nEmail: %2$s</string>
+
+    <!-- ══ Add Article ══ -->
+    <string name="add_article_title">Thêm bài viết mới</string>
+    <string name="add_article_pending_banner">⏳ Bài viết sẽ được gửi chờ duyệt trước khi đăng lên trang người dùng</string>
+    <string name="add_article_hint_title">Tiêu đề bài viết</string>
+    <string name="add_article_hint_author">Tác giả</string>
+    <string name="add_article_hint_category">Chọn danh mục</string>
+    <string name="add_article_section_image">Ảnh bìa</string>
+    <string name="add_article_placeholder_image">Chưa chọn ảnh bìa</string>
+    <string name="add_article_btn_pick_image">Chọn ảnh bìa từ thư viện</string>
+    <string name="add_article_section_video">Video minh họa (tùy chọn)</string>
+    <string name="add_article_placeholder_video">Chưa chọn video</string>
+    <string name="add_article_btn_pick_video">Chọn video từ thư viện</string>
+    <string name="add_article_section_content">Nội dung bài viết</string>
+    <string name="add_article_paste_hint">💡 Admin: Dán ảnh trực tiếp hoặc dùng nút chèn</string>
+    <string name="add_article_btn_submit">ĐĂNG BÀI</string>
+    <string name="add_article_toolbar_bold">In đậm</string>
+    <string name="add_article_toolbar_italic">In nghiêng</string>
+    <string name="add_article_toolbar_underline">Gạch chân</string>
+    <string name="add_article_toolbar_align_left">Căn trái</string>
+    <string name="add_article_toolbar_align_center">Căn giữa</string>
+    <string name="add_article_toolbar_align_right">Căn phải</string>
+    <string name="add_article_toolbar_align_justify">Căn đều</string>
+    <string name="add_article_toolbar_insert_image">Chèn ảnh vào nội dung</string>
+    <string name="add_article_toolbar_bullet">Danh sách gạch đầu dòng</string>
+    <string name="add_article_toolbar_number">Danh sách số thứ tự</string>
+    <string name="add_article_toolbar_link">Chèn liên kết</string>
+    <string name="add_article_toolbar_strikethrough">Gạch ngang</string>
+
+    <!-- ══ Article Detail ══ -->
+    <string name="detail_related_header">TIN CÙNG CHUYÊN MỤC</string>
+    <string name="detail_action_like">Thích</string>
+    <string name="detail_action_comment">Bình luận</string>
+    <string name="detail_action_share">Chia sẻ</string>
+
+    <!-- ══ Contact ══ -->
+    <string name="contact_toolbar_title">Liên hệ quản trị viên</string>
+    <string name="contact_title">Liên hệ quản trị viên\nđể được cấp tài khoản</string>
+    <string name="contact_label_call">Gọi hotline</string>
+    <string name="contact_label_email">Gửi email</string>
+    <string name="contact_label_zalo">Nhắn tin Zalo</string>
+
+    <!-- ══ Login ══ -->
+    <string name="login_welcome">Chào mừng trở lại</string>
+    <string name="login_subtitle">Đăng nhập để tiếp tục</string>
+    <string name="login_hint_email">Email</string>
+    <string name="login_hint_password">Mật khẩu</string>
+    <string name="login_forgot_password">Quên mật khẩu?</string>
+    <string name="login_btn">Đăng nhập</string>
+    <string name="login_register_prompt">Chưa có tài khoản? Đăng ký ngay</string>
+
+    <!-- ══ Home / MainActivity ══ -->
+    <string name="home_app_name">TẠP CHÍ KHOA HỌC</string>
+    <string name="home_app_subtitle">KỸ THUẬT VINH</string>
+    <string name="home_tab_news">TIN TỨC SỰ KIỆN</string>
+    <string name="home_tab_training">ĐÀO TẠO</string>
+    <string name="home_tab_jobs">THÔNG TIN VIỆC LÀM</string>
+    <string name="home_tab_science">KHOA HỌC CÔNG NGHỆ</string>
+    <string name="home_tab_cooperation">HỢP TÁC QUỐC TẾ</string>
+
+    <!-- ══ Search ══ -->
+    <string name="search_hint">Tìm kiếm...</string>
+    <string name="search_back">Quay lại</string>
+    <string name="search_empty">Vui lòng nhập nội dung để tìm kiếm</string>
+
+    <!-- ══ Register ══ -->
+    <string name="register_title">Tạo tài khoản mới</string>
+    <string name="register_hint_fullname">Họ và tên</string>
+    <string name="register_hint_email">Email</string>
+    <string name="register_hint_password">Mật khẩu</string>
+    <string name="register_hint_confirm_password">Xác nhận mật khẩu</string>
+    <string name="register_btn">Đăng ký</string>
+    <string name="register_login_prompt">Đã có tài khoản? Đăng nhập</string>
+    <string name="register_back">Quay lại</string>
+
+    <!-- ══ Comment item ══ -->
+    <string name="comment_default_name">Tên người dùng</string>
+    <string name="comment_default_content">Nội dung bình luận...</string>
+    <string name="comment_btn_like">Thích</string>
+    <string name="comment_btn_reply">Trả lời</string>
+    <string name="comment_reply_hint">Viết trả lời...</string>
+    <string name="comment_send_reply">Gửi trả lời</string>
+
+    <!-- ══ Action bar card ══ -->
+    <string name="action_like">Thích</string>
+    <string name="action_comment">Bình luận</string>
+    <string name="action_share">Chia sẻ</string>
+    <string name="action_comment_hint">Viết bình luận...</string>
+    <string name="action_send">Gửi</string>
+
+    <!-- ══ Nav header ══ -->
+    <string name="nav_header_title">TẠP CHÍ KHOA HỌC</string>
+    <string name="nav_header_subtitle">Kỹ Thuật Vinh</string>
+
+    <string name="nav_home">Trang chủ</string>
+    <string name="nav_featured">Nổi bật</string>
+    <string name="nav_post">Đăng bài</string>
+    <string name="nav_following">Theo dõi</string>
+    <string name="nav_profile">Hồ sơ</string>
+
+    <!-- ══ Related news / list item ══ -->
+    <string name="item_thumbnail_desc">Ảnh bài viết</string>
+
+    <!-- ══ Side/Drawer menu items ══ -->
+    <string name="menu_home">Trang chủ</string>
+    <string name="menu_news">Tin tức sự kiện</string>
+    <string name="menu_training">Đào tạo</string>
+    <string name="menu_jobs">Thông tin việc làm</string>
+    <string name="menu_science">Khoa học - Công nghệ</string>
+    <string name="menu_cooperation">Hợp tác quốc tế</string>
+    <string name="menu_intro">Giới thiệu</string>
+
+    <!-- ══ Admin Settings ══ -->
+    <string name="settings_admin_title">Cài đặt</string>
+    <string name="admin_name">Quản trị viên</string>
+    <string name="dark_mode_on">Đã bật chế độ tối</string>
+    <string name="dark_mode_off">Đã tắt chế độ tối</string>
+    <string name="btn_save">Lưu</string>
+    <string name="dialog_admin_logout_message">Bạn có chắc chắn muốn đăng xuất khỏi trang quản trị không?</string>
+
+    <!-- ══ Admin Activity toolbar + dialogs ══ -->
+    <string name="admin_welcome_line1">CHÀO MỪNG BẠN ĐẾN</string>
+    <string name="admin_welcome_line2">TRANG QUẢN TRỊ</string>
+    <string name="admin_exit_title">Thoát trang quản trị</string>
+    <string name="admin_exit_message">Bạn có muốn thoát khỏi trang quản trị không?</string>
+    <string name="admin_delete_title">🗑 Xóa bài viết</string>
+    <string name="admin_delete_message">Xóa vĩnh viễn "%1$s"?\n\nHành động này không thể hoàn tác.</string>
+    <string name="dialog_yes">Có</string>
+    <string name="dialog_no">Hủy</string>
+    <string name="dialog_delete">Xóa</string>
+
+    <!-- ══ Admin Settings screen labels ══ -->
+    <string name="admin_section_interface">GIAO DIỆN</string>
+    <string name="admin_section_customization">TÙY CHỈNH</string>
+    <string name="admin_section_support">HỖ TRỢ</string>
+    <string name="admin_dark_mode_label">Chế độ tối</string>
+    <string name="admin_dark_mode_desc">Bảo vệ mắt khi dùng ban đêm</string>
+    <string name="admin_language_label">Ngôn ngữ</string>
+    <string name="admin_notif_label">Thông báo</string>
+    <string name="admin_notif_desc">Quản lý thông báo hệ thống</string>
+    <string name="admin_help_label">Trợ giúp &amp; Hỗ trợ</string>
+    <string name="admin_help_desc">Câu hỏi thường gặp</string>
+    <string name="admin_about_label">Về chúng tôi</string>
+    <string name="admin_about_desc">Phiên bản 1.0.0</string>
+    <string name="admin_logout_label">Đăng xuất</string>
+
+    <!-- ══ Stats Activity ══ -->
+    <string name="stats_title">Thống kê</string>
+    <string name="stats_subtitle">Tổng quan hệ thống</string>
+    <string name="stats_section_content">NỘI DUNG</string>
+    <string name="stats_section_interaction">TƯƠNG TÁC</string>
+    <string name="stats_approved">Bài đã duyệt</string>
+    <string name="stats_live">✓ Live</string>
+    <string name="stats_pending">Chờ duyệt</string>
+    <string name="stats_users">Người dùng</string>
+    <string name="stats_views">Lượt xem</string>
+    <string name="stats_likes">Lượt thích</string>
+    <string name="stats_comments">Bình luận</string>
+
+    <!-- ══ Approve Article Activity ══ -->
+    <string name="approve_title">DUYỆT BÀI VIẾT</string>
+    <string name="approve_pending_count">%1$d bài đang chờ</string>
+    <string name="approve_tab_all">Chờ duyệt </string>
+    <string name="approve_tab_approved">Đã duyệt</string>
+    <string name="approve_tab_rejected">Từ chối</string>
+    <string name="approve_empty_title">Không có bài viết nào chờ duyệt</string>
+    <string name="approve_empty_desc">Tất cả bài viết đã được xử lý</string>
+    <string name="approve_status_pending">⏳ Đang chờ duyệt</string>
+    <string name="approve_status_approved">✅ Đã duyệt</string>
+    <string name="approve_status_rejected">❌ Đã từ chối</string>
+    <string name="approve_btn_approve">✓  Duyệt bài</string>
+    <string name="approve_btn_reject">✕  Từ chối</string>
+    <string name="approve_btn_revoke">↩  Thu hồi</string>
+    <string name="approve_btn_reapprove">↺  Duyệt lại</string>
+    <string name="approve_time_approved">Duyệt lúc: </string>
+    <string name="approve_time_rejected">Từ chối lúc: </string>
+    <string name="approve_no_content">Không có nội dung</string>
+    <string name="approve_anonymous">Ẩn danh</string>
+    <string name="approve_unknown_account">Không rõ tài khoản</string>
+    <string name="approve_uncategorized">Chưa phân loại</string>
+    <string name="approve_dialog_approve_title">✅ Duyệt bài viết</string>
+    <string name="approve_dialog_approve_message">Duyệt bài "%1$s"?\n\nBài viết sẽ được đăng lên trang người dùng.</string>
+    <string name="approve_dialog_approve_btn">Duyệt ngay</string>
+    <string name="approve_dialog_reject_title">❌ Từ chối bài viết</string>
+    <string name="approve_dialog_reject_message">Từ chối bài "%1$s"?\n\nBài viết sẽ chuyển vào danh sách từ chối.</string>
+    <string name="approve_dialog_reject_btn">Từ chối</string>
+    <string name="approve_dialog_delete_title">🗑 Xóa bài viết</string>
+    <string name="approve_dialog_delete_message">Xóa vĩnh viễn bài "%1$s"?\n\nHành động này không thể hoàn tác.</string>
+
+    <!-- ══ Admin Bottom Navigation Menu ══ -->
+    <string name="admin_menu_home">Trang chủ</string>
+    <string name="admin_menu_approve">Duyệt bài</string>
+    <string name="admin_menu_add">Thêm bài</string>
+    <string name="admin_menu_stats">Thống kê</string>
+    <string name="admin_menu_settings">Cài đặt</string>
+
+    <!-- ══ Notifications Admin ══ -->
+    <string name="notif_new_article">📝  Bài viết mới</string>
+    <string name="notif_new_article_desc">Nhận thông báo khi có bài viết được đăng</string>
+    <string name="notif_pending">⏳  Bài chờ duyệt</string>
+    <string name="notif_pending_desc">Nhận thông báo khi có bài chờ phê duyệt</string>
+    <string name="notif_system">🔔  Thông báo hệ thống</string>
+    <string name="notif_system_desc">Cập nhật hệ thống và bảo trì</string>
+    <string name="notif_saved">✅ Đã lưu cài đặt thông báo</string>
+
+    <!-- ══ Help Admin ══ -->
+    <string name="help_contact">📧  Liên hệ hỗ trợ kỹ thuật: support@tapchikhoakhoc.edu.vn</string>
+    <string name="help_email_subject">[Hỗ trợ] Tạp chí Khoa học Admin</string>
+    <string name="help_no_email_app">Không tìm thấy ứng dụng email</string>
+
+    <!-- ══ FAQ Admin ══ -->
+    <string name="faq_q1">❓  Làm thế nào để thêm bài viết?</string>
+    <string name="faq_a1">Vào mục \'Quản lý bài viết\' → nhấn nút \'+\' ở góc dưới phải → điền đầy đủ thông tin rồi nhấn \'Đăng bài\'.</string>
+    <string name="faq_q2">❓  Bài viết chờ duyệt là gì?</string>
+    <string name="faq_a2">Bài viết do người dùng gửi cần được Admin xét duyệt. Vào \'Bài chờ duyệt\' để xem và phê duyệt hoặc từ chối.</string>
+    <string name="faq_q3">❓  Làm thế nào để xóa bài viết?</string>
+    <string name="faq_a3">Vào danh sách bài viết → nhấn giữ vào bài muốn xóa → chọn \'Xóa\'. Lưu ý: hành động này không thể hoàn tác.</string>
+    <string name="faq_q4">❓  Quên mật khẩu admin?</string>
+    <string name="faq_a4">Liên hệ quản trị viên hệ thống hoặc email: admin@tapchikhoakhoc.edu.vn để được cấp lại mật khẩu.</string>
+    <string name="faq_q5">❓  Ứng dụng bị lỗi phải làm sao?</string>
+    <string name="faq_a5">Thử thoát và mở lại ứng dụng. Nếu vẫn lỗi, hãy liên hệ bộ phận kỹ thuật qua email hỗ trợ bên dưới.</string>
+
+    <!-- ══ About Admin ══ -->
+    <string name="about_slogan">Nền tảng xuất bản khoa học hiện đại</string>
+    <string name="about_version_label">📱  Phiên bản</string>
+    <string name="about_version_value">1.0.0 (Build 2024)</string>
+    <string name="about_org_label">🏢  Đơn vị</string>
+    <string name="about_org_value">Trường Đại học Khoa học</string>
+    <string name="about_website_label">🌐  Website</string>
+    <string name="about_website_value">www.tapchikhoakhoc.edu.vn</string>
+    <string name="about_email_label">📧  Email</string>
+    <string name="about_email_value">info@tapchikhoakhoc.edu.vn</string>
+    <string name="about_phone_label">📞  Điện thoại</string>
+    <string name="about_phone_value">(028) 3456 7890</string>
+    <string name="about_address_label">📍  Địa chỉ</string>
+    <string name="about_address_value">123 Đường Khoa Học, Quận 5, TP.HCM</string>
+    <string name="about_copyright">© 2024 Tạp chí Khoa học. Tất cả quyền được bảo lưu.\nPhát triển bởi Nhóm IT – Phòng Công nghệ Thông tin</string>
+
+
+
+</resources>

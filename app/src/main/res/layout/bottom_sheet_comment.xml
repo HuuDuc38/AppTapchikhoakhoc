@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomSheetRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <!-- Handle bar -->
+    <View
+        android:id="@+id/handleBar"
+        android:layout_width="36dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="6dp"
+        android:background="#CCCCCC" />
+
+    <!-- ── Header: tiêu đề + nút đóng ── -->
+    <LinearLayout
+        android:id="@+id/sheetHeader"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="12dp">
+
+        <TextView
+            android:id="@+id/tvCommentCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Bình luận"
+            android:textColor="#1C1E21"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/btnCloseComment"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:padding="4dp"
+            android:background="@drawable/circle_gray_bg"
+            android:contentDescription="Đóng" />
+    </LinearLayout>
+
+    <!-- Divider header -->
+    <View
+        android:id="@+id/dividerHeader"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E4E6EB" />
+
+    <!-- ── Danh sách comment ── -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerComments"
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:overScrollMode="never"
+        android:clipToPadding="false"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="#FFFFFF" />
+
+    <!-- Empty state -->
+    <TextView
+        android:id="@+id/tvNoComments"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:text="Chưa có bình luận nào.&#10;Hãy là người đầu tiên! 😊"
+        android:textColor="#65676B"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <!-- Divider trên input -->
+    <View
+        android:id="@+id/dividerInput"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E4E6EB" />
+
+    <!-- ── Input box ── -->
+    <LinearLayout
+        android:id="@+id/inputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="#FFFFFF">
+
+        <!-- Avatar người dùng hiện tại -->
+        <TextView
+            android:id="@+id/tvMyAvatar"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/avatar_circle_bg"
+            android:gravity="center"
+            android:text="+"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <!-- ✅ Input container: ID = commentInputContainer để đổi màu nền -->
+        <LinearLayout
+            android:id="@+id/commentInputContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/comment_input_fb_bg"
+            android:paddingStart="14dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
+
+            <EditText
+                android:id="@+id/etComment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Viết bình luận..."
+                android:textColor="#1C1E21"
+                android:textSize="14sp"
+                android:background="@android:color/transparent"
+                android:maxLines="4"
+                android:inputType="textMultiLine|textCapSentences"
+                android:imeOptions="actionDone"
+                android:minHeight="36dp" />
+
+            <ImageView
+                android:id="@+id/btnSendComment"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:src="@android:drawable/ic_menu_send"
+                android:padding="6dp"
+                app:tint="#FF2E7D"
+                android:contentDescription="Gửi"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

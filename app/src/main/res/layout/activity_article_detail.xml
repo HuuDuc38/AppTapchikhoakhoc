@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:fitsSystemWindows="false">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/toolbar_gradient_red"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:fitsSystemWindows="false">
+
+        <LinearLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imgDetail"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/add_article_section_image"
+                android:background="#E0E0E0" />
+
+            <LinearLayout
+                android:id="@+id/articleInfoLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="8dp"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tiêu đề bài viết sẽ hiển thị ở đây"
+                    android:textColor="#1A1A1A"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:lineSpacingExtra="6dp"
+                    android:paddingBottom="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="16dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                        <ImageView android:id="@+id/icDate" android:layout_width="16dp" android:layout_height="16dp" android:src="@android:drawable/ic_menu_recent_history" app:tint="#888888" />
+                        <TextView android:id="@+id/tvDate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:text="05/02/2026 09:23" android:textColor="#888888" android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="6dp">
+                        <ImageView android:id="@+id/icAuthor" android:layout_width="16dp" android:layout_height="16dp" android:src="@android:drawable/ic_menu_myplaces" app:tint="#C8463D" />
+                        <TextView android:id="@+id/tvAuthor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:text="Admin" android:textColor="#C8463D" android:textSize="14sp" android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView android:id="@+id/tvCategory" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Chuyên mục: An toàn thông tin" android:textColor="#555555" android:textSize="13sp" android:textStyle="italic" android:visibility="gone" />
+                </LinearLayout>
+
+                <View android:id="@+id/dividerContent" android:layout_width="match_parent" android:layout_height="1dp" android:background="#E5E5E5" android:layout_marginVertical="12dp" />
+
+                <WebView
+                    android:id="@+id/webViewContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:scrollbars="none"
+                    android:overScrollMode="never" />
+            </LinearLayout>
+
+            <!-- Video Player -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardVideo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#000000"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="false"
+                android:fitsSystemWindows="false">
+                <FrameLayout
+                    android:id="@+id/videoContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:background="#000000"
+                    android:fitsSystemWindows="false">
+                    <VideoView android:id="@+id/videoView" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_gravity="center" android:visibility="gone" android:fitsSystemWindows="false" />
+                    <ProgressBar android:id="@+id/progressBar" android:layout_width="48dp" android:layout_height="48dp" android:layout_gravity="center" android:visibility="gone" />
+                    <FrameLayout android:id="@+id/thumbnailContainer" android:layout_width="match_parent" android:layout_height="match_parent">
+                        <ImageView android:id="@+id/imgVideoThumbnail" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:contentDescription="Thumbnail video" />
+                        <ImageView android:id="@+id/imgPlayIcon" android:layout_width="80dp" android:layout_height="80dp" android:layout_gravity="center" android:src="@drawable/ic_play" android:background="@drawable/play_button_background" android:padding="20dp" android:contentDescription="Play" />
+                    </FrameLayout>
+                    <LinearLayout
+                        android:id="@+id/videoControlsLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:orientation="vertical"
+                        android:background="@drawable/video_controls_background"
+                        android:padding="12dp"
+                        android:visibility="gone">
+                        <SeekBar android:id="@+id/seekBar" android:layout_width="match_parent" android:layout_height="wrap_content" android:progressTint="#C8463D" android:thumbTint="#C8463D" android:max="100" />
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="8dp">
+                            <ImageView android:id="@+id/btnPlayPause" android:layout_width="36dp" android:layout_height="36dp" android:src="@drawable/ic_play" android:padding="6dp" android:background="?attr/selectableItemBackgroundBorderless" app:tint="#FFFFFF" android:contentDescription="Play/Pause" />
+                            <TextView android:id="@+id/tvCurrentTime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00" android:textColor="#FFFFFF" android:textSize="13sp" android:layout_marginStart="12dp" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" / " android:textColor="#CCCCCC" android:textSize="13sp" />
+                            <TextView android:id="@+id/tvTotalTime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00" android:textColor="#FFFFFF" android:textSize="13sp" />
+                            <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" />
+                            <ImageView android:id="@+id/btnFullscreen" android:layout_width="36dp" android:layout_height="36dp" android:src="@drawable/ic_fullscreen" android:padding="6dp" android:background="?attr/selectableItemBackgroundBorderless" app:tint="#FFFFFF" android:contentDescription="Fullscreen" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <View android:id="@+id/dividerAboveReaction" android:layout_width="match_parent" android:layout_height="1dp" android:background="#E4E6EB" />
+
+            <!-- Reaction count bar -->
+            <LinearLayout android:id="@+id/layoutReactionCount" android:layout_width="match_parent" android:layout_height="36dp" android:orientation="horizontal" android:gravity="center_vertical" android:paddingHorizontal="16dp" android:background="#FFFFFF" android:visibility="gone">
+                <TextView android:id="@+id/tvReactionEmojis" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:textSize="15sp" />
+                <TextView android:id="@+id/tvReactionTotal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp" android:text="" android:textColor="#65676B" android:textSize="14sp" />
+                <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" />
+                <TextView android:id="@+id/tvCommentCountBar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4 bình luận" android:textColor="#65676B" android:textSize="14sp" />
+            </LinearLayout>
+
+            <View android:id="@+id/dividerReaction" android:layout_width="match_parent" android:layout_height="1dp" android:background="#E4E6EB" android:visibility="gone" />
+
+            <!-- Action bar: Like / Comment / Share -->
+            <LinearLayout
+                android:id="@+id/actionBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="#FFFFFF">
+
+                <LinearLayout android:id="@+id/layoutLike" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:clickable="true" android:focusable="true" android:background="?android:attr/selectableItemBackground">
+                    <ImageView android:id="@+id/imgLike" android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/like" app:tint="#606770" />
+                    <TextView android:id="@+id/tvLike" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="@string/detail_action_like" android:textColor="#606770" android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/layoutComment" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:clickable="true" android:focusable="true" android:background="?android:attr/selectableItemBackground">
+                    <ImageView android:id="@+id/imgComment" android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/comment" app:tint="#606770" />
+                    <TextView android:id="@+id/tvComment" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/detail_action_comment" android:textColor="#606770" android:textSize="15sp" android:layout_marginStart="8dp" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/layoutShare" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:clickable="true" android:focusable="true" android:background="?android:attr/selectableItemBackground">
+                    <ImageView android:id="@+id/imgShare" android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/share" app:tint="#606770" />
+                    <TextView android:id="@+id/tvShare" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/detail_action_share" android:textColor="#606770" android:textSize="15sp" android:layout_marginStart="8dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View android:id="@+id/separatorView" android:layout_width="match_parent" android:layout_height="8dp" android:background="#F5F5F5" />
+
+            <!-- Tin cùng chuyên mục -->
+            <LinearLayout
+                android:id="@+id/relatedNewsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="24dp"
+                android:background="#FFFFFF">
+                <TextView
+                    android:id="@+id/tvRelatedHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_related_header"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#D84315"
+                    android:layout_marginBottom="16dp" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerRelatedNews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="24dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

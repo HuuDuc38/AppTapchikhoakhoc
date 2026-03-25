@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="14dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="#1A1A1A">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <!-- Badge trạng thái + thời gian -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:id="@+id/tvStatusBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:text=" ⏳  CHỜ DUYỆT "
+                android:textColor="#FFCC00"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:background="@drawable/badge_pending_bg" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tvArticleTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 giờ trước"
+                android:textColor="#FFFFFF55"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Tiêu đề -->
+        <TextView
+            android:id="@+id/tvArticleTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tiêu đề bài viết sẽ hiển thị tại đây"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.3"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Tóm tắt nội dung -->
+        <TextView
+            android:id="@+id/tvArticleContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nội dung bài viết tóm tắt..."
+            android:textColor="#FFFFFF88"
+            android:textSize="13sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.4"
+            android:layout_marginBottom="14dp" />
+
+        <!-- Thời gian duyệt / từ chối -->
+        <LinearLayout
+            android:id="@+id/layoutApprovedTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🕐 "
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvApprovedTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Duyệt lúc: 01/01/2025 08:00"
+                android:textColor="#FFFFFF66"
+                android:textSize="12sp"
+                android:fontFamily="monospace" />
+        </LinearLayout>
+
+        <!-- Divider — thêm id để Java có thể đổi màu -->
+        <View
+            android:id="@+id/dividerItem"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFFFFF15"
+            android:layout_marginBottom="14dp" />
+
+        <!-- Meta: tác giả + danh mục -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tvAuthorAvatar"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:background="@drawable/avatar_circle_bg"
+                android:gravity="center"
+                android:text="A"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvAuthorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tên tác giả"
+                    android:textColor="#FFFFFFCC"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔑 "
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/tvAuthorUsername"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="username@email.com"
+                        android:textColor="#FF2E7D"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvArticleCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Danh mục"
+                    android:textColor="#FFFFFF66"
+                    android:textSize="11sp"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvCategoryTag"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:text="Khoa học"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:gravity="center"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:background="@drawable/category_tag_bg" />
+        </LinearLayout>
+
+        <!-- Nút hành động -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDelete"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_marginEnd="8dp"
+                android:text="🗑"
+                android:textSize="16sp"
+                app:backgroundTint="#1A1A1A"
+                app:cornerRadius="12dp"
+                app:strokeColor="#FF444444"
+                app:strokeWidth="1dp"
+                app:rippleColor="#FF444444"
+                android:padding="0dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnReject"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="✕  Từ chối"
+                android:textColor="#FF6B6B"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:backgroundTint="#2A1010"
+                app:cornerRadius="12dp"
+                app:strokeColor="#FF6B6B"
+                app:strokeWidth="1dp"
+                app:rippleColor="#FF6B6B33" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnApprove"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_weight="1"
+                android:text="✓  Duyệt bài"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:backgroundTint="#FF2E7D"
+                app:cornerRadius="12dp"
+                app:rippleColor="#FFFFFF33" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

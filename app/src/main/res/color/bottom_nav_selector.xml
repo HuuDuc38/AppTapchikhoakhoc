@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="#FFFFFF" android:state_checked="true" />
+    <item android:color="#FFFFFF" />
+    <!-- Tab đang chọn → đen đậm -->
+    <item android:color="#1A1A1A" android:state_checked="true" />
+    <!-- Tab không chọn → xám nhạt -->
+    <item android:color="#BBBBBB" />
+    <item android:color="#C8463D" android:state_checked="true" />
+    <item android:color="#757575" />
+    <item android:color="#C8463D" android:state_checked="true" />
+    <item android:color="#757575" />
+</selector>
