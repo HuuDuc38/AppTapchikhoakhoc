@@ -96,8 +96,7 @@ public class AddEditArticleActivity extends BaseActivity {
     private boolean            isPendingMode = false;
     private boolean            isAdmin       = false;
 
-    // ── FIX: lưu dark mode state để tránh vòng lặp recreate vô hạn ──
-    private boolean isDarkMode;
+    private boolean isDarkMode   = false;
     private boolean isRecreating = false;
 
     private static final String[] CATEGORIES = {
@@ -142,8 +141,7 @@ public class AddEditArticleActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // ── FIX: lưu trạng thái dark mode ngay khi onCreate ──
-        isDarkMode = ThemeManager.isDarkMode(this);
+        isDarkMode   = ThemeManager.isDarkMode(this);
         isRecreating = false;
 
         setContentView(R.layout.activity_add_edit_article);
@@ -152,10 +150,7 @@ public class AddEditArticleActivity extends BaseActivity {
         checkAdminStatus();
         readIntentExtras();
         initViews();
-
-        // ── FIX: áp dụng theme sau khi initViews đã hoàn tất ──
         applyActivityTheme();
-
         setupToolbar();
         setupCategory();
         setupRichEditor();
@@ -172,12 +167,11 @@ public class AddEditArticleActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // ── FIX: cập nhật isDarkMode TRƯỚC khi gọi recreate để tránh vòng lặp vô hạn ──
         if (!isRecreating) {
             boolean currentDark = ThemeManager.isDarkMode(this);
             if (currentDark != isDarkMode) {
-                isDarkMode = currentDark;    // cập nhật trước
-                isRecreating = true;         // đánh dấu đang recreate
+                isDarkMode   = currentDark;
+                isRecreating = true;
                 recreate();
             }
         }
@@ -253,7 +247,6 @@ public class AddEditArticleActivity extends BaseActivity {
     // ── APPLY THEME ───────────────────────────────────────────────
 
     private void applyActivityTheme() {
-        // ── FIX: bọc toàn bộ trong try-catch để tránh crash khi theme chưa sẵn sàng ──
         try {
             if (rootContent    != null) rootContent.setBackgroundColor(bg());
             if (rootScrollView != null) rootScrollView.setBackgroundColor(bg());
@@ -279,7 +272,6 @@ public class AddEditArticleActivity extends BaseActivity {
             applyPlaceholder(placeholderVideo, tvPlaceholderVideoText);
             if (editorToolbar != null) {
                 editorToolbar.setBackgroundColor(card());
-                // ── FIX: dùng try-catch riêng cho tintImageButtons vì hay crash ──
                 try {
                     tintImageButtons(editorToolbar, textMain());
                 } catch (Exception e) {
@@ -372,12 +364,16 @@ public class AddEditArticleActivity extends BaseActivity {
             reEditor.setEditorFontColor(textMain());
             String textHex = dark() ? "#FFFFFF" : "#1A1A1A";
             String bgHex   = dark() ? "#243447"  : "#FFFFFF";
+            // ✅ Thêm style căn giữa cho ảnh được chèn vào editor
             reEditor.loadCSS(
                     "body { padding:12px 16px; color:" + textHex +
                             "; background:" + bgHex +
                             "; font-size:16px; line-height:1.6; } " +
                             "img { max-width:100%; height:auto; display:block;" +
-                            " margin:10px 0; border-radius:8px; } " +
+                            " margin:10px auto; border-radius:8px; } " +
+                            "p { margin:0 0 8px 0; } " +
+                            "div[style*='text-align:center'] img," +
+                            "div[style*='text-align: center'] img { margin:10px auto; display:block; } " +
                             "a { color:" + (dark() ? "#4FC3F7" : "#C8463D") + "; } " +
                             "::selection { background:rgba(200,70,61,0.25); }"
             );
@@ -424,9 +420,7 @@ public class AddEditArticleActivity extends BaseActivity {
         for (int i = 0; i < parent.getChildCount(); i++) {
             View child = parent.getChildAt(i);
             if (child instanceof ImageButton) {
-                // ── FIX: dùng setColorFilter thay vì setImageTintList để tránh crash ──
                 ((ImageButton) child).setColorFilter(color, PorterDuff.Mode.SRC_IN);
-                // ── FIX: set background transparent để tránh lỗi ?attr/ không resolve ──
                 child.setBackgroundColor(Color.TRANSPARENT);
             } else if (child instanceof ViewGroup) {
                 tintImageButtons((ViewGroup) child, color);
@@ -537,10 +531,21 @@ public class AddEditArticleActivity extends BaseActivity {
 
             reEditor.setOnInitialLoadListener(isReady -> {
                 if (isReady) {
+                    // ✅ Inject JS helper để chèn ảnh với div căn giữa
                     reEditor.loadUrl(
-                            "javascript:RE.setJustify=function(){" +
-                                    "RE.editor.focus();" +
-                                    "document.execCommand('justifyFull',false,null);" +
+                            "javascript:" +
+                                    "RE.insertCenteredImage = function(src, alt) {" +
+                                    "  var html = '<div style=\"text-align:center;margin:10px 0;\">" +
+                                    "<img src=\"' + src + '\" alt=\"' + alt + '\" " +
+                                    "style=\"max-width:100%;height:auto;display:inline-block;" +
+                                    "border-radius:8px;\" /></div>';" +
+                                    "  RE.editor.focus();" +
+                                    "  document.execCommand('insertHTML', false, html);" +
+                                    "  RE.updatePlaceholder();" +
+                                    "};" +
+                                    "RE.setJustify = function(){" +
+                                    "  RE.editor.focus();" +
+                                    "  document.execCommand('justifyFull',false,null);" +
                                     "};"
                     );
                 }
@@ -811,6 +816,7 @@ public class AddEditArticleActivity extends BaseActivity {
         applyPlaceholder(placeholderVideo, tvPlaceholderVideoText);
     }
 
+    // ✅ FIX CHÍNH: chèn ảnh bằng HTML div căn giữa thay vì insertImage() mặc định
     private void insertImageIntoRichEditor(Uri uri) {
         Toast.makeText(this, "Đang xử lý ảnh...", Toast.LENGTH_SHORT).show();
         new Thread(() -> {
@@ -822,23 +828,47 @@ public class AddEditArticleActivity extends BaseActivity {
                     return;
                 }
                 embeddedImagePaths.add(savedPath);
-                Bitmap bm = android.graphics.BitmapFactory.decodeFile(savedPath);
-                if (bm == null) return;
-                if (bm.getWidth() > 800) {
-                    float r = 800f / bm.getWidth();
-                    bm = Bitmap.createScaledBitmap(
-                            bm, 800, (int)(bm.getHeight() * r), true);
+
+                // ✅ Đọc kích thước trước để thu nhỏ an toàn
+                android.graphics.BitmapFactory.Options opts =
+                        new android.graphics.BitmapFactory.Options();
+                opts.inJustDecodeBounds = true;
+                android.graphics.BitmapFactory.decodeFile(savedPath, opts);
+                opts.inSampleSize = 1;
+                if (opts.outWidth > 800) opts.inSampleSize = (int) Math.ceil((double) opts.outWidth / 800);
+                opts.inJustDecodeBounds = false;
+                opts.inPreferredConfig  = Bitmap.Config.RGB_565;
+
+                Bitmap bm = android.graphics.BitmapFactory.decodeFile(savedPath, opts);
+                if (bm == null) {
+                    runOnUiThread(() -> Toast.makeText(this,
+                            "Không đọc được ảnh", Toast.LENGTH_SHORT).show());
+                    return;
                 }
+
                 java.io.ByteArrayOutputStream baos = new java.io.ByteArrayOutputStream();
-                bm.compress(Bitmap.CompressFormat.JPEG, 85, baos);
+                bm.compress(Bitmap.CompressFormat.JPEG, 80, baos);
                 String b64 = android.util.Base64.encodeToString(
                         baos.toByteArray(), android.util.Base64.NO_WRAP);
                 bm.recycle();
+                baos.close();
+
+                final String base64Src = "data:image/jpeg;base64," + b64;
+
                 runOnUiThread(() -> {
-                    reEditor.insertImage(
-                            "data:image/jpeg;base64," + b64, "Ảnh minh họa", 320);
+                    // ✅ Dùng JS function đã inject trong setupRichEditor
+                    // Escape dấu ' trong base64 (an toàn, base64 không có ' nhưng phòng hờ)
+                    String escaped = base64Src.replace("'", "\\'");
+                    reEditor.loadUrl(
+                            "javascript:RE.insertCenteredImage('" + escaped + "', 'Ảnh minh họa');"
+                    );
                     Toast.makeText(this, "✓ Đã chèn ảnh!", Toast.LENGTH_SHORT).show();
                 });
+
+            } catch (OutOfMemoryError oom) {
+                System.gc();
+                runOnUiThread(() -> Toast.makeText(this,
+                        "Ảnh quá lớn, vui lòng chọn ảnh nhỏ hơn", Toast.LENGTH_LONG).show());
             } catch (Exception e) {
                 e.printStackTrace();
                 runOnUiThread(() -> Toast.makeText(this,
