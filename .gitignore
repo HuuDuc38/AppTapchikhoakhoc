@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+.gradle-user
+.firebase-user/
+.android-user/
+.android-user-*/
+firebase-debug.log

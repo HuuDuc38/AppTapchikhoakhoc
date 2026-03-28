@@ -96,43 +96,50 @@ public class LoginActivity extends BaseActivity {
             showLoading(true);
 
             new Handler(Looper.getMainLooper()).postDelayed(() -> {
-                if (dbHelper.checkLogin(email, password)) {
-                    String userName = dbHelper.getUserName(email);
+                new Thread(() -> {
+                    boolean loginSuccess = dbHelper.checkLogin(email, password);
+                    String userName = loginSuccess ? dbHelper.getUserName(email) : "";
 
-                    SharedPreferences sp = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
-                    sp.edit()
-                            .putBoolean("isLoggedIn", true)
-                            .putString(KEY_NAME,  userName)
-                            .putString(KEY_EMAIL, email)
-                            .apply();
+                    runOnUiThread(() -> {
+                        if (isFinishing() || isDestroyed()) return;
 
-                    getSharedPreferences("UserSession", MODE_PRIVATE).edit()
-                            .putBoolean("isLoggedIn", true)
-                            .putString("userName",  userName)
-                            .putString("userEmail", email)
-                            .apply();
+                        if (loginSuccess) {
+                            SharedPreferences sp = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+                            sp.edit()
+                                    .putBoolean("isLoggedIn", true)
+                                    .putString(KEY_NAME, userName)
+                                    .putString(KEY_EMAIL, email)
+                                    .apply();
 
-                    Toast.makeText(LoginActivity.this,
-                            "Đăng nhập thành công!\nXin chào " + userName,
-                            Toast.LENGTH_SHORT).show();
+                            getSharedPreferences("UserSession", MODE_PRIVATE).edit()
+                                    .putBoolean("isLoggedIn", true)
+                                    .putString("userName", userName)
+                                    .putString("userEmail", email)
+                                    .apply();
 
-                    if (redirectComment) {
-                        setResult(RESULT_OK);
-                        finish();
-                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-                    } else {
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        finish();
-                    }
+                            Toast.makeText(LoginActivity.this,
+                                    "Đăng nhập thành công!\nXin chào " + userName,
+                                    Toast.LENGTH_SHORT).show();
 
-                } else {
-                    showLoading(false);
-                    Toast.makeText(LoginActivity.this,
-                            "Email hoặc mật khẩu không đúng!", Toast.LENGTH_SHORT).show();
-                }
+                            if (redirectComment) {
+                                setResult(RESULT_OK);
+                                finish();
+                                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                            } else {
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                finish();
+                            }
+                            return;
+                        }
+
+                        showLoading(false);
+                        Toast.makeText(LoginActivity.this,
+                                "Email hoặc mật khẩu không đúng!", Toast.LENGTH_SHORT).show();
+                    });
+                }).start();
             }, 1500);
         });
 

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bootstrap_admin_emails">
+        <item>admin@vinhuni.edu.vn</item>
+        <item>admin@tapchikhoahoc.vn</item>
+    </string-array>
+</resources>

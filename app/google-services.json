@@ -1,26 +1,37 @@
 {
   "project_info": {
-    "project_number": "242912489290",
-    "project_id": "tapchikhoahoc-9946f",
-    "storage_bucket": "tapchikhoahoc-9946f.firebasestorage.app"
+    "project_number": "1080672591756",
+    "firebase_url": "https://tapchikhoahoc-d465f-default-rtdb.firebaseio.com",
+    "project_id": "tapchikhoahoc-d465f",
+    "storage_bucket": "tapchikhoahoc-d465f.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:242912489290:android:96ac80028e4a2115925bb3",
+        "mobilesdk_app_id": "1:1080672591756:android:009a95c25b6b8c836400a9",
         "android_client_info": {
           "package_name": "com.example.apptapchikhoakhoc"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1080672591756-taak1hg3jhh33ms130ss0v5n512h6q1a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyCYka_7UG7cpa7eOIhklCcnG8f8BbpeFbo"
+          "current_key": "AIzaSyChyFtWxzYTDXsYVxXlx0Ny-Hipixg1hQI"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1080672591756-taak1hg3jhh33ms130ss0v5n512h6q1a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

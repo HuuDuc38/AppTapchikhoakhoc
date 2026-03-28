@@ -1,0 +1,11 @@
+# Project-local Codex defaults for AppTapchikhoakhoc.
+# High reasoning is useful here because Android UI, SQLite, and duplicated
+# user/admin flows often require coordinated multi-file changes.
+
+model = "gpt-5.4"
+model_reasoning_effort = "xhigh"
+
+# Phần Windows sandbox (bắt buộc trên Windows)
+[windows]
+sandbox = "elevated"      # ← Dùng cái này trước
+# sandbox = "unelevated"  # Dùng nếu elevated bị lỗi

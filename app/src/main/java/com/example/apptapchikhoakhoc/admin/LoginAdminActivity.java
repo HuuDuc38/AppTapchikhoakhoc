@@ -21,170 +21,126 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class LoginAdminActivity extends AppCompatActivity {
 
     private TextInputEditText edtEmail, edtPassword;
-    private TextInputLayout   tilEmail, tilPassword;
-    private MaterialButton    btnLogin;
+    private TextInputLayout tilEmail, tilPassword;
+    private MaterialButton btnLogin;
     private CircularProgressIndicator progressLoading;
-    private ImageButton       btnBack;
-    private TextView          tvTitle, tvSubtitle, tvForgotPassword, tvContactAdmin;
-    private RelativeLayout    rootLayout;
+    private ImageButton btnBack;
+    private TextView tvTitle, tvSubtitle, tvForgotPassword, tvContactAdmin;
+    private RelativeLayout rootLayout;
+
+    private static final String PREFS_NAME = "AdminLoginPrefs";
+    private static final String KEY_EMAIL = "email";
 
     private SharedPreferences prefs;
-    private static final String PREFS_NAME  = "AdminLoginPrefs";
-    private static final String KEY_EMAIL    = "email";
-    private static final String KEY_PASSWORD = "password";
-
-    private final Map<String, String> adminAccounts = new HashMap<>();
+    private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private boolean isDark;
-
-    // ══════════════════════════════════════════════════════════
-    //  LIFECYCLE
-    // ══════════════════════════════════════════════════════════
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ThemeManager.applyThemeOnStartup(this); // ★ TRƯỚC setContentView
+        ThemeManager.applyThemeOnStartup(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_admin_login);
 
         isDark = ThemeManager.isDarkMode(this);
+        prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
         initViews();
         applyDarkModeTheme();
-        initTestAccounts();
-
-        prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         loadSavedLogin();
         setupClickListeners();
     }
 
-    // ══════════════════════════════════════════════════════════
-    //  INIT
-    // ══════════════════════════════════════════════════════════
-
     private void initViews() {
-        rootLayout       = findViewById(R.id.rootLayout);
-        btnBack          = findViewById(R.id.btnBack);
-        tvTitle          = findViewById(R.id.tvTitle);
-        tvSubtitle       = findViewById(R.id.tvSubtitle);
-        tilEmail         = findViewById(R.id.tilEmail);
-        edtEmail         = findViewById(R.id.edtEmail);
-        tilPassword      = findViewById(R.id.tilPassword);
-        edtPassword      = findViewById(R.id.edtPassword);
-        btnLogin         = findViewById(R.id.btnLogin);
-        progressLoading  = findViewById(R.id.progressLoading);
+        rootLayout = findViewById(R.id.rootLayout);
+        btnBack = findViewById(R.id.btnBack);
+        tvTitle = findViewById(R.id.tvTitle);
+        tvSubtitle = findViewById(R.id.tvSubtitle);
+        tilEmail = findViewById(R.id.tilEmail);
+        edtEmail = findViewById(R.id.edtEmail);
+        tilPassword = findViewById(R.id.tilPassword);
+        edtPassword = findViewById(R.id.edtPassword);
+        btnLogin = findViewById(R.id.btnLogin);
+        progressLoading = findViewById(R.id.progressLoading);
         tvForgotPassword = findViewById(R.id.tvForgotPassword);
-        tvContactAdmin   = findViewById(R.id.tvContactAdmin);
+        tvContactAdmin = findViewById(R.id.tvContactAdmin);
     }
 
-    // ══════════════════════════════════════════════════════════
-    //  DARK MODE
-    // ══════════════════════════════════════════════════════════
-
     private void applyDarkModeTheme() {
-        // ── Màu nền ────────────────────────────────────────────
-        int bgColor     = isDark ? ThemeManager.DarkColors.BACKGROUND      : Color.parseColor("#F5F7FA");
-        int txtPrimary  = isDark ? ThemeManager.DarkColors.TEXT_PRIMARY    : Color.parseColor("#1A1A1A");
-        int txtSecond   = isDark ? ThemeManager.DarkColors.TEXT_SECONDARY  : Color.parseColor("#666666");
-        int accentColor = isDark ? ThemeManager.DarkColors.ACCENT          : Color.parseColor("#2D68C4");
-        int backTint    = isDark ? ThemeManager.DarkColors.TEXT_SECONDARY  : Color.parseColor("#666666");
+        int bgColor = isDark ? ThemeManager.DarkColors.BACKGROUND : Color.parseColor("#F5F7FA");
+        int txtPrimary = isDark ? ThemeManager.DarkColors.TEXT_PRIMARY : Color.parseColor("#1A1A1A");
+        int txtSecond = isDark ? ThemeManager.DarkColors.TEXT_SECONDARY : Color.parseColor("#666666");
+        int accentColor = isDark ? ThemeManager.DarkColors.ACCENT : Color.parseColor("#2D68C4");
+        int backTint = isDark ? ThemeManager.DarkColors.TEXT_SECONDARY : Color.parseColor("#666666");
 
-        // ── Nền root ───────────────────────────────────────────
         if (rootLayout != null) rootLayout.setBackgroundColor(bgColor);
-
-        // ── Tiêu đề ────────────────────────────────────────────
-        if (tvTitle    != null) tvTitle.setTextColor(txtPrimary);
+        if (tvTitle != null) tvTitle.setTextColor(txtPrimary);
         if (tvSubtitle != null) tvSubtitle.setTextColor(txtSecond);
-
-        // ── Nút back ───────────────────────────────────────────
         if (btnBack != null) btnBack.setColorFilter(backTint);
 
-        // ── TextInputLayout: hint + stroke + text ──────────────
         applyInputLayoutTheme(tilEmail);
         applyInputLayoutTheme(tilPassword);
 
-        if (edtEmail    != null) edtEmail.setTextColor(txtPrimary);
+        if (edtEmail != null) edtEmail.setTextColor(txtPrimary);
         if (edtPassword != null) edtPassword.setTextColor(txtPrimary);
 
-        // ── Links ──────────────────────────────────────────────
         if (tvForgotPassword != null) tvForgotPassword.setTextColor(accentColor);
-        if (tvContactAdmin   != null) tvContactAdmin.setTextColor(accentColor);
-
-        // ── Nút đăng nhập: giữ màu xanh #2D68C4 ──────────────
-        // (không thay đổi — vẫn nổi bật trên cả 2 mode)
+        if (tvContactAdmin != null) tvContactAdmin.setTextColor(accentColor);
     }
 
-    /** Đổi màu hint, stroke, icon của TextInputLayout theo dark mode */
     private void applyInputLayoutTheme(TextInputLayout til) {
         if (til == null) return;
 
-        int hintColor   = isDark ? ThemeManager.DarkColors.TEXT_SECONDARY : Color.parseColor("#666666");
-        int strokeColor = isDark ? ThemeManager.DarkColors.DIVIDER         : Color.parseColor("#CCCCCC");
-        int focusColor  = isDark ? ThemeManager.DarkColors.ACCENT          : Color.parseColor("#2D68C4");
-        int boxBg       = isDark ? ThemeManager.DarkColors.CARD_BACKGROUND : Color.WHITE;
+        int hintColor = isDark ? ThemeManager.DarkColors.TEXT_SECONDARY : Color.parseColor("#666666");
+        int strokeColor = isDark ? ThemeManager.DarkColors.DIVIDER : Color.parseColor("#CCCCCC");
+        int focusColor = isDark ? ThemeManager.DarkColors.ACCENT : Color.parseColor("#2D68C4");
+        int boxBg = isDark ? ThemeManager.DarkColors.CARD_BACKGROUND : Color.WHITE;
 
-        // Hint text color
         til.setHintTextColor(ColorStateList.valueOf(hintColor));
-
-        // Box stroke color (normal + focused)
         til.setBoxStrokeColorStateList(new ColorStateList(
-                new int[][]{
-                        new int[]{ android.R.attr.state_focused },
-                        new int[]{}
-                },
-                new int[]{ focusColor, strokeColor }
+                new int[][]{new int[]{android.R.attr.state_focused}, new int[]{}},
+                new int[]{focusColor, strokeColor}
         ));
-
-        // Box background color
         til.setBoxBackgroundColor(boxBg);
-
-        // Password toggle icon tint
         til.setEndIconTintList(ColorStateList.valueOf(hintColor));
-    }
-
-    // ══════════════════════════════════════════════════════════
-    //  ACCOUNTS & LOGIN
-    // ══════════════════════════════════════════════════════════
-
-    private void initTestAccounts() {
-        adminAccounts.put("admin@vinhuni.edu.vn",      "admin123");
-        adminAccounts.put("admin",                      "admin");
-        adminAccounts.put("admin@tapchikhoahoc.vn",    "123456");
     }
 
     private void loadSavedLogin() {
         String savedEmail = prefs.getString(KEY_EMAIL, "");
-        String savedPass  = prefs.getString(KEY_PASSWORD, "");
         if (!savedEmail.isEmpty()) {
             edtEmail.setText(savedEmail);
-            edtPassword.setText(savedPass);
         }
     }
 
     private void setupClickListeners() {
         btnBack.setOnClickListener(v -> finish());
-
         btnLogin.setOnClickListener(v -> performLogin());
 
         tvForgotPassword.setOnClickListener(v ->
-                Toast.makeText(this, "Liên hệ IT: it@vinhuni.edu.vn", Toast.LENGTH_LONG).show());
+                Toast.makeText(this, "Contact IT: it@vinhuni.edu.vn", Toast.LENGTH_LONG).show());
 
         tvContactAdmin.setOnClickListener(v ->
                 startActivity(new Intent(this, ContactAdminActivity.class)));
     }
 
     private void performLogin() {
-        String email = edtEmail.getText().toString().trim();
-        String pass  = edtPassword.getText().toString();
+        String email = edtEmail.getText() == null ? "" : edtEmail.getText().toString().trim();
+        String pass = edtPassword.getText() == null ? "" : edtPassword.getText().toString();
 
         if (email.isEmpty() || pass.isEmpty()) {
-            Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter all fields", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -192,39 +148,111 @@ public class LoginAdminActivity extends AppCompatActivity {
         btnLogin.setText("");
         progressLoading.setVisibility(View.VISIBLE);
 
-        new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            if (adminAccounts.containsKey(email) && adminAccounts.get(email).equals(pass)) {
+        new Handler(Looper.getMainLooper()).postDelayed(() ->
+                firebaseAuth.signInWithEmailAndPassword(email, pass)
+                        .addOnSuccessListener(authResult -> {
+                            if (authResult.getUser() == null) {
+                                onLoginFailed();
+                                return;
+                            }
+                            firestore.collection("users").document(authResult.getUser().getUid()).get()
+                                    .addOnSuccessListener(this::handleRoleCheck)
+                                    .addOnFailureListener(e -> onLoginFailed());
+                        })
+                        .addOnFailureListener(e -> onLoginFailed())
+                , 800);
+    }
 
-                prefs.edit()
-                        .putString(KEY_EMAIL, email)
-                        .putString(KEY_PASSWORD, pass)
-                        .apply();
+    private void handleRoleCheck(DocumentSnapshot userDoc) {
+        String email = edtEmail.getText() == null ? "" : edtEmail.getText().toString().trim();
+        String role = userDoc != null && userDoc.contains("role")
+                ? String.valueOf(userDoc.get("role"))
+                : "";
 
-                Toast.makeText(this, "Đăng nhập thành công!", Toast.LENGTH_LONG).show();
+        if ("admin".equalsIgnoreCase(role)) {
+            completeAdminLogin(email);
+            return;
+        }
 
-                Intent intent = new Intent(LoginAdminActivity.this, AdminActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                finish();
+        if (isBootstrapAdminEmail(email)) {
+            bootstrapAdminProfile(email, userDoc);
+            return;
+        }
 
-            } else {
-                Toast.makeText(this, "Sai email hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
-                edtPassword.setText("");
-                resetLoginButton();
-                prefs.edit().clear().apply();
+        firebaseAuth.signOut();
+        Toast.makeText(this, "This account does not have admin role", Toast.LENGTH_SHORT).show();
+        onLoginFailed();
+    }
+
+    private boolean isBootstrapAdminEmail(String email) {
+        String normalizedEmail = email == null ? "" : email.trim().toLowerCase(Locale.ROOT);
+        if (normalizedEmail.isEmpty()) return false;
+
+        String[] bootstrapEmails = getResources().getStringArray(R.array.bootstrap_admin_emails);
+        for (String candidate : bootstrapEmails) {
+            if (normalizedEmail.equals(candidate.trim().toLowerCase(Locale.ROOT))) {
+                return true;
             }
-        }, 1400);
+        }
+        return false;
+    }
+
+    private void bootstrapAdminProfile(String email, DocumentSnapshot userDoc) {
+        if (firebaseAuth.getCurrentUser() == null) {
+            onLoginFailed();
+            return;
+        }
+
+        String uid = firebaseAuth.getCurrentUser().getUid();
+        String existingName = userDoc != null && userDoc.contains("name")
+                ? String.valueOf(userDoc.get("name"))
+                : "";
+        if (existingName == null || existingName.trim().isEmpty() || "null".equalsIgnoreCase(existingName)) {
+            int atIndex = email.indexOf('@');
+            existingName = atIndex > 0 ? email.substring(0, atIndex) : "Admin";
+        }
+
+        long now = System.currentTimeMillis();
+        Map<String, Object> payload = new HashMap<>();
+        payload.put("name", existingName.trim());
+        payload.put("email", email);
+        payload.put("role", "admin");
+        payload.put("updatedAt", now);
+        if (userDoc == null || !userDoc.exists()) {
+            payload.put("createdAt", now);
+        }
+
+        firestore.collection("users").document(uid)
+                .set(payload, SetOptions.merge())
+                .addOnSuccessListener(unused -> completeAdminLogin(email))
+                .addOnFailureListener(e -> onLoginFailed());
+    }
+
+    private void completeAdminLogin(String email) {
+        prefs.edit().putString(KEY_EMAIL, email).apply();
+        getSharedPreferences("AdminSession", MODE_PRIVATE).edit()
+                .putBoolean("isAdminLoggedIn", true)
+                .putString("adminEmail", email)
+                .apply();
+
+        Toast.makeText(this, "Login successful!", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(LoginAdminActivity.this, AdminActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        finish();
+    }
+
+    private void onLoginFailed() {
+        Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show();
+        edtPassword.setText("");
+        resetLoginButton();
+        prefs.edit().clear().apply();
     }
 
     private void resetLoginButton() {
         btnLogin.setEnabled(true);
-        btnLogin.setText("Đăng nhập");
+        btnLogin.setText("Login");
         progressLoading.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 }

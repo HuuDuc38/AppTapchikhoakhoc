@@ -1,0 +1,4 @@
+interface:
+  display_name: "AppTapchikhoakhoc Maintainer"
+  short_description: "Android Java workflows for build, refactor, deploy, and comment changes"
+  default_prompt: "Use this skill when maintaining the AppTapchikhoakhoc Android Java app, especially for Gradle build or deploy work, safe refactors across user and admin flows, SQLite changes, and comment-system updates."

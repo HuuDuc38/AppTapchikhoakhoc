@@ -206,27 +206,37 @@ public class RegisterActivity extends BaseActivity {
         showLoading(true);
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            if (dbHelper.isEmailExists(email)) {
-                showLoading(false);
-                tilEmail.setError("Email này đã được đăng ký!");
-                tilEmail.requestFocus();
-                return;
-            }
+            new Thread(() -> {
+                boolean emailExists = dbHelper.isEmailExists(email);
+                if (emailExists) {
+                    runOnUiThread(() -> {
+                        if (isFinishing() || isDestroyed()) return;
+                        showLoading(false);
+                        tilEmail.setError("Email này đã được đăng ký!");
+                        tilEmail.requestFocus();
+                    });
+                    return;
+                }
 
-            boolean success = dbHelper.registerUser(name, email, pass);
-            if (success) {
-                Toast.makeText(this,
-                        "Đăng ký thành công!\nVui lòng đăng nhập để tiếp tục.",
-                        Toast.LENGTH_LONG).show();
-                showLoading(false);
-                finish();
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-            } else {
-                showLoading(false);
-                Toast.makeText(this,
-                        "Đăng ký thất bại. Vui lòng thử lại!",
-                        Toast.LENGTH_SHORT).show();
-            }
+                boolean success = dbHelper.registerUser(name, email, pass);
+                runOnUiThread(() -> {
+                    if (isFinishing() || isDestroyed()) return;
+
+                    if (success) {
+                        Toast.makeText(this,
+                                "Đăng ký thành công!\nVui lòng đăng nhập để tiếp tục.",
+                                Toast.LENGTH_LONG).show();
+                        showLoading(false);
+                        finish();
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                    } else {
+                        showLoading(false);
+                        Toast.makeText(this,
+                                "Đăng ký thất bại. Vui lòng thử lại!",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }).start();
         }, 1500);
     }
 
